@@ -1,0 +1,148 @@
+  body{
+      background-color:#FFFFFF;
+      margin: 0px;
+      padding: 0px;
+      font-family: Arial, Helvetica, sans-serif;
+      max-width: 100%;
+      min-width: 100%;
+      
+    }
+    #header{
+      width: 100%;
+      height: 60px;
+      background-color: #E21B70;
+      padding:5px;
+      display: flex;
+      align-items:center;
+      justify-content: center;
+      position: fixed;
+
+      
+    }
+    #logo{
+        width: 50px;
+        height: 50px;
+        position: relative;
+        right: 6%;
+    }
+
+    .first{
+      background-color: #E21B70;
+      border:1px solid #FFFFFF;
+      padding: 10px;
+      margin: 5px;
+      border-radius: 10px;
+      height: auto;
+      color: #FFFFFF;
+  
+    }
+
+
+    #mainn{
+      width: 100%;
+      height: 100px;
+      background-color:#FFFFFF;
+      /* display: flex;
+      justify-content: center; */
+      gap: 10%;
+      box-shadow: 0px 10px 5px rgb(236, 233, 233) ;
+      position: fixed;
+      margin-top: 58px;
+
+      
+      
+      
+    }
+    #mainn div img{
+      width: 30px;
+      height: 30px;
+      margin-top: 9px;
+    }
+     #mainn div p{
+      color: #E21B70;
+      font-weight: bolder;
+     }
+    
+    #buttonsinheader{
+        gap: 2%;
+        display: flex;
+        justify-content: center;
+      
+
+    }
+    #login{
+        background-color: #FFFFFF;
+      border:1px solid #000000;
+      padding: 10px;
+      margin: 5px;
+      border-radius: 10px;
+      height: auto;
+      color: black;
+      
+    }
+    .signup{
+        background-color: #E21B70;
+      border:1px solid #FFFFFF;
+      padding: 10px;
+      margin: 5px;
+      border-radius: 10px;
+      height: auto;
+      color: #FFFFFF;
+      
+    }
+    #adress{
+        display: flex;
+      justify-content: center;
+    width: 50%;
+    margin-bottom: 1%;
+      margin-top: 1%;
+      position: relative;
+      left: 5%;
+       
+    }
+
+    #location{
+        border: 0px solid white;
+        padding: 10px;
+ width: 30%;
+ border-radius: 50px;
+ outline: none;
+        
+    }
+
+
+    #iconboxmain{
+         display: flex;
+      justify-content: center;
+      width: 100%;
+      height: auto;
+      margin: 0%;
+       position: relative;
+      right: 274px;
+    }
+    #iconbox{
+        
+      
+      width: 50%;
+      height: auto;
+    
+    }
+     .icons{
+      background-color: #ffffff;
+      border:0px solid #000000;
+      padding: 10px;
+      margin: 0px;
+      height: auto;
+      color: #000000;
+      font-size: x-large;
+
+     
+     
+      
+      
+    }
+
+    
+
+
+    

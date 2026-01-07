@@ -1,0 +1,226 @@
+#main{
+    
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
+    /* width: 100%; */
+     height: auto;
+     padding-left: 15%;
+     height: 10800px;
+   
+
+   
+}
+
+
+#submain{
+    display: flex;
+
+    
+}
+
+#sidebarmain{
+height: 10600px;
+position: fixed
+   
+}
+
+
+
+#sidebar{
+    border: 1px solid #E7E8E9;
+    /* width: 230px; */
+    height: 630px;
+    border-radius: 10px;
+    padding: 26px;
+
+    /* position: fixed; */
+    overflow-y: scroll;
+
+    font-size: large;
+    margin-top: 200px;
+  
+
+}
+/* #ww>p{
+
+    display: inline;
+    padding-bottom: 200px;
+
+} */
+
+#sidebar>button{
+
+      background-color: #FFFFFF;
+      border:1px solid #000000;
+      padding: 10px;
+      margin: 5px;
+      border-radius: 10px;
+      height: auto;
+      color: black;
+}
+#sidebar>input{
+    border: 0px solid white;
+        padding: 10px;
+ width: auto;
+ border-radius: 50px;
+ outline: none;
+ background-color:#F7F8F8 ;
+}
+#sidebar>select{
+
+    border: 0px solid white;
+    outline: none;
+}
+h3{
+    font-weight: bold;
+}
+#mainbox{
+     
+     width: 1200px;
+     /* height: 10800px; */
+     
+
+     /* display: flex;
+     align-content: center;
+     justify-content: center; */
+     /* margin-left: 2%; */
+     margin-top: 200px;
+     margin-left: 24%;
+     
+}
+
+img{
+    width: 50px;
+    height: 50px;
+}
+
+#searchbarinmainboxmain{
+    display: flex;
+    justify-content: center;
+    width: auto;
+}
+#searchbarinmainbox{
+    width: 95%;
+    
+}
+
+#s{
+      border: 0px solid white;
+        padding: 10px;
+        background-color: #F7F8F8;
+        font-size: larger;
+ width: 100%;
+ height: 50px;
+ border-radius: 50px;
+ outline: none;
+}
+#signupimage{
+ 
+display: flex;
+background-color: #FFDDDD;
+border-radius: 20px 20px 20px 20px;
+}
+.image{
+    width: 50%;
+    height: 0%;
+    background-color: #FFDDDD;
+    border-radius: 20px 20px 20px 20px;
+}
+.imagee{
+    width: 50%;
+    height: 20%;
+    background-color: #FEDDD8;
+    border-radius: 20px 20px 20px 20px;
+}
+#panda{
+    width: 40%;
+    height: auto;
+}
+#Yourdailydealsmainbox{
+    display: flex;
+    gap: 20px;
+    
+}
+.Yourdailydealssubbox{
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+    width: 30%;
+    height: 100px;
+    border-radius: 20px;
+background-color: #FF2B85;
+}
+.imge{
+    width: 50%;
+    height: 100%;
+    
+}
+.img{
+    width: 100%;
+    height: 100%;
+
+}
+.off{
+
+    width: 50%;
+    height: 100%;
+    align-content: center;
+    font-weight: bold;
+    padding-left: 20px;
+   
+
+
+}
+.off>p{
+    background-color: #FFDDDD;
+    display: inline;
+}
+.cuisinesmainbox{
+    display: flex;
+    overflow-x: scroll;
+    gap: 20px;
+   
+}
+.cuisinesmainbox div img{
+    border-radius: 10px;
+    width: 120px;
+    height: 100px;
+}
+.allresturantsmain{
+
+
+    /* display: flex; */
+    height: 320px;
+ /* align-content:center ; */
+}
+.allresturantssubmain{
+     
+    display: flex;
+    
+    height: 100%;
+    gap: 3%;
+    
+    
+}
+.allresturantssubmain div{
+ 
+ border-radius: 20px;
+    width: 35%;
+    height: 100%;
+    border: 0.5px solid #E8E9EA;
+}
+.allresturantssubmain>div>img{
+    width: 100%;
+    height: 70%;
+    border-radius: 20px 20px 0px 0px;
+}
+.biryani{
+    font-weight: bolder;
+    font-size: large;
+   
+}
+.image>h2{
+    font-size: 40px;
+}
+
