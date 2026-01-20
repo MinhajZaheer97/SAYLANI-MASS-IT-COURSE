@@ -1,16 +1,9 @@
 
-      alert("WANT TO GENERATE A TABLE");
+var items = ["cake", "apple pie", "cookie", "chips", "patties"];
+var input = prompt("Enter item:").toLowerCase();
 
-      var number = Number(prompt("enter an number for table"));
-
-      var lenth = Number(prompt("enter the table length for table"));
-
-      document.write("<div style='text-align:center;'>");
-
-      document.write("<h1>TABLE OF " + number + " </h1>" + "<br>" + "<hr>");
-
-      for (var i = 1; i <= lenth; i++) {
-        document.write(number + " X " + i + " = " + number * i + "<hr>");
-      }
-
-      document.write("</div>");
+if (items.includes(input)) {
+  alert("Found");
+} else {
+  alert("Not found");
+}
