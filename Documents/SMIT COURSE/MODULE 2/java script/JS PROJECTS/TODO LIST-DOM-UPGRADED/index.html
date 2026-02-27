@@ -3,18 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Quick Todo</title>
     <script defer src="app.js"></script>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <h1>QUICK TODO LIST</h1>
+    <hr />
     <div class="main">
-        <h1>QUICK TODO LIST</h1>
-        <hr>
       <input type="text" class="todo-input" placeholder="Type anything" />
       <button class="todo-button" onclick="addtodo()">Add Todo</button>
+    </div>
+    <div class = "main-todo-container">
 
       <div class="todo-container"></div>
+
+     
     </div>
-  </body>
+    <div class = "clear-all-container">
+
+      <button class="clear-all" onclick="clearall()">
+        
+        clear all
+        
+      </button>
+    </div>
+    
+    </body>
 </html>
