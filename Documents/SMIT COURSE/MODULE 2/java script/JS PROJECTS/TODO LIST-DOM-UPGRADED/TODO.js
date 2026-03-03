@@ -6,7 +6,9 @@ function addtodo() {
   var inputValue = input.value;
 
   if (input.value == "") {
-    alert("enter something");
+
+    alertBox.querySelector("p").innerHTML = "Please enter something";
+    alertBox.style.display = "flex";
     return;
   }
 
@@ -21,17 +23,31 @@ function addtodo() {
   todo2ndtd.setAttribute("class", "todo-delete");
 
   var deleteButton = document.createElement("button");
-  deleteButton.innerText = "DELETE";
   deleteButton.setAttribute("class", "delete-button");
   deleteButton.setAttribute("onclick", "deletetodo(this)");
+
+  // delete imogi
+
+  var deleteimg = document.createElement("img");
+  deleteimg.src = "cross image.jpg"; 
+  deleteimg.setAttribute("class", "delete-img");
+  deleteimg.setAttribute("alt", "Delete");
+  deleteButton.appendChild(deleteimg);
 
   var todo3rdtd = document.createElement("td");
   todo3rdtd.setAttribute("class", "todo-edit");
 
   var editButton = document.createElement("button");
-  editButton.innerText = "EDIT";
   editButton.setAttribute("class", "edit-button");
   editButton.setAttribute("onclick", "edittodo(this)");
+
+  // edit imogi
+
+  var editimg = document.createElement("img");
+  editimg.src = "edit.png"; 
+  editimg.setAttribute("class", "edit-img");
+  editimg.setAttribute("alt", "Edit");
+  editButton.appendChild(editimg);
 
   todo1sttd.appendChild(todotext);
   todo2ndtd.appendChild(deleteButton);
@@ -63,7 +79,9 @@ function edittodo(e) {
   var edittext = row.querySelector(".text");
 
   if (inputValue === "") {
-    alert("enter something");
+
+    alertBox.querySelector("p").innerHTML = "Please enter something";
+    alertBox.style.display = "flex";
     return;
   }
   edittext.innerText = inputValue;

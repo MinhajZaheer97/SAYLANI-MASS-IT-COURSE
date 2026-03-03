@@ -45,46 +45,49 @@ h1{
     display: flex;
     justify-content: center;
     width: 100%;
+        flex-wrap: wrap;
+    
 }
 
 .todo-container{
-    width: 50%;
     margin-top: 20px;
-    display: flex;
-    text-align: center;
-    flex-wrap: wrap;
-    font-size: x-large;
+    display: flex;  
+    flex-direction: column;
+    align-items: center;
     background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* text-align: center; */
+
 }
 
 
 .todo-para{
 
     border-bottom: 2px solid black;
-    border-right: black solid 2px;
     padding: 10px;
     margin: 10px;
-    min-width: 200px;
-    max-width: 200px;
-        word-wrap: break-word;
+    min-width: 500px;
+    max-width: 500px;
+    word-wrap: break-word;
     overflow-wrap: break-word;
 }
 .todo-delete{
     border-bottom: 2px solid black;
-    border-right: black solid 2px;
     padding: 10px;
     margin: 10px;
-    min-width: 200px;
-    max-width: 200px;
+    align-content: center;
+
 
 }
 
 .todo-edit{
     border-bottom: 2px solid black;
-   padding: 10px;
+    padding: 10px;
     margin: 10px;
-        min-width: 200px;
-    max-width: 200px;
+    align-content: center;
+
+
 }
 
 .todo-para{
@@ -96,16 +99,15 @@ h1{
 
 
 .delete-button{
-    color: rgb(0, 0, 0);
     font-weight: bolder;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: x-large;
-     min-width: 200px;
-    max-width: 200px;
+    min-width: 30px;
+    min-height: 30px;
     text-align: center;
-    
+    background: none;
 
 }
 
@@ -116,18 +118,13 @@ h1{
     border-radius: 4px;
     cursor: pointer;
     font-size: x-large;
-    min-width: 200px;
-    max-width: 200px;
-    
-
+    min-width: 30px;
+    min-height: 30px;
+    background: none;
 }
 
 
 .clear-all {
-
-    /* bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%); */
 
     padding: 12px 30px;
     background-color: #dc3545;  
@@ -157,4 +154,14 @@ h1{
     display: flex;
     justify-content: center;
     margin-top: 20px;
+}
+
+.delete-img{
+    width: 30px;
+    height: 30px;
+}
+
+.edit-img{
+    width: 30px;
+    height: 30px;
 }
