@@ -6,6 +6,7 @@ var score = {
 
 
 
+
 function computerMoveSelection() {
   var num = Math.floor(Math.random() * 10 + 1);
   var computermove;
@@ -72,4 +73,3 @@ ${result}
 Wins = ${score.wins}, Losses = ${score.losses}, Draws = ${score.draws}`
 );
 }
-
