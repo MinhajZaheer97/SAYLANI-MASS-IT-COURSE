@@ -1,33 +1,19 @@
 var display = document.querySelector(".cal-display");
-var buttons = document.querySelectorAll(".btn");
-
-buttons.forEach(function (button) {
-  button.addEventListener("click", function () {
-    var buttonText = this.innerText;
-    console.log(buttonText);
-
-    if (buttonText === "=") {
-      try {
-        display.innerText = eval(display.innerText);
-        if (
-          display.innerText === "undefined" ||
-          display.innerText === "null" ||
-          display.innerText === "NaN" ||
-          display.innerText === "Infinity" ||
-          display.innerText === "-Infinity"
-        ) {
-          display.innerText = "Error";
-        }
-      } catch (error) {
-        alert("Error");
-        display.innerText = "";
-      }
-    } else if (buttonText === "DEL") {
+var btns = document.querySelectorAll(".btn");
+btns.forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    var BtnsText = this.innerHTML; // this is liye lagaya he take wo us specific button ke text ko le sake jispe click ho rha he
+    // var output = eval(display.innerText);
+    if (BtnsText === "=") {
+     
+     var output = eval(display.innerText);
+      display.innerText = output;
+    } 
+    else if (BtnsText === "AC") {
+      display.innerHTML = "";
+    } else if (BtnsText === "DEL") {
       display.innerText = display.innerText.slice(0, -1);
-    } else if (buttonText === "AC") {
-      display.innerText = "";
-    } else {
-      display.innerText += buttonText;
     }
+    else display.innerText += BtnsText;
   });
 });

@@ -16,6 +16,7 @@ body{
     align-items: center; 
     justify-content: center; 
     padding: 20px;
+    
 }
 
 .cal-display { 
@@ -30,6 +31,8 @@ body{
     border-radius: 5px; 
     background-color: #f1f1f1; 
     align-content: end;
+    overflow-x: scroll ;
+    overflow-y: hidden;
 }
 
 .btn { 
@@ -74,3 +77,63 @@ body{
 .del:active { 
     background-color: #b36b00; 
 }
+
+/* for mobile  */
+
+
+@media (max-width: 480px) {
+    body {
+        align-items: flex-start;
+        box-sizing: border-box;
+    }
+
+    .cal-main {
+        width: 100vw;
+        min-height: 100vh;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 30px 20px;
+        justify-content: flex-start;
+        box-sizing: border-box;
+    }
+
+    .cal-display {
+        width: 80vw;
+        height: 80px;
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        width: 70px;
+        height: 95px;
+        max-width: 70px;
+        max-height: 95px;
+        font-size: 22px;
+        margin: 3px;
+    }
+
+    .AC{
+        width: 40vw;
+        max-width: 165px;
+        margin-bottom: 15px;
+        height: 75px;
+
+
+    }
+    .del {
+        width: 40vw;
+        max-width: 165px;
+        margin-bottom: 15px;
+        height: 75px;
+
+    }
+
+  
+
+    .cal-btns td {
+        display: flex;
+        justify-content: center;
+    }
+} 
+ 
