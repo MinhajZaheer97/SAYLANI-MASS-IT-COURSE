@@ -21,7 +21,7 @@ body{
 
 .cal-display { 
     width: 215px; 
-    height: 70px; 
+    height: 80px; 
     margin-bottom: 10px; 
     font-size: 30px; 
     text-align: right; 
@@ -91,105 +91,3 @@ p {
         text-shadow: black 3px 0 10px;
     }
 
-
-/* for mobile  */
-
-
-@media (max-width: 600px) {
-    body {
-        align-items: flex-start;
-        box-sizing: border-box;
-    }
-
-    .cal-main {
-        width: 100vw;
-        height: 100vh;
-        min-height: 100vh;
-        border-radius: 0;
-        box-shadow: none;
-        padding: 30px 20px;
-        justify-content: flex-start;
-        box-sizing: border-box;
-    }
-
-    .cal-display {
-        width: 80vw;
-        height: 150px;
-        min-height: 150px;
-        font-size: 60px;
-        margin-bottom: 35px;
-    }
-
-    .btn {
-        width: 75px;
-        height: 100px;
-        max-width: 75px;
-        max-height: 100px;
-        font-size: 22px;
-        margin: 5px;
-        margin-bottom: 15px;
-    }
-
-    .AC{
-        width: 40vw;
-        max-width: 165px;
-        /* margin-bottom: 30px; */
-        height: 100px;
-
-
-    }
-    .del {
-        width: 40vw;
-        max-width: 165px;
-        /* margin-bottom: 30px; */
-        height: 100px;
-
-    }
-
-  
-
-    .cal-btns td {
-        display: flex;
-        justify-content: center;
-    }
-
-    p {
-        margin-top: 0px;
-        font-size: 20px;
-        color: rgb(230, 217, 217);
-        text-decoration: dotted underline;
-        text-shadow: black 3px 0 10px;
-    }
-    p > a{
-        color: rgb(230, 217, 217);
-        text-decoration: underline;
-        text-shadow: black 3px 0 10px;
-    }
-} 
-
-/* 
-@media (max-width: 320px) {
-    .cal-display {
-        width: 90vw;
-        height: 10px;
-        font-size: 48px;
-        margin-bottom: 25px;
-    }
-
-    .btn {
-        width: 55px;
-        height: 80px;
-        font-size: 18px;
-        margin: 4px;
-    }
-
-    .AC, .del {
-        width: 35vw;
-        max-width: 130px;
-        height: 80px;
-    }
-
-    p {
-        font-size: 16px;
-    }
-} */
