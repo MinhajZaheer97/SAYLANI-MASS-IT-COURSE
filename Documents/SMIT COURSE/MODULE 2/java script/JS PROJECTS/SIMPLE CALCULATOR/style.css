@@ -1,4 +1,4 @@
-body{ 
+/* body{ 
     height: 100vh;
     margin: 0; 
     padding: 0; 
@@ -6,6 +6,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    background: linear-gradient(188deg, rgb(32, 210, 4) 0%, rgb(191, 191, 191) 96%, rgb(255, 255, 255) 99%);
 }
 .cal-main { 
     background-color: #777171; 
@@ -18,6 +19,7 @@ body{
     padding: 20px;
     
 }
+
 
 .cal-display { 
     width: 215px; 
@@ -42,7 +44,7 @@ body{
     font-size: 20px; 
     border: none; 
     border-radius: 5px; 
-    background-color: #4CAF50; 
+    background-color: #4caf50; 
     color: white; 
     cursor: pointer;
 }
@@ -90,4 +92,124 @@ p {
         text-decoration: underline;
         text-shadow: black 3px 0 10px;
     }
+ */
 
+
+ @media (min-width: 320px){
+    body{ 
+    height: 100vh;
+    margin: 0; 
+    padding: 0; 
+    font-family: 'Arial', sans-serif;
+    background-color: black;
+}
+
+.cal-main { 
+    background-color: #777171; 
+    /* border-radius: 10px;  */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    padding: 20px;
+
+    height: 92vh;
+}
+
+.cal-display { 
+    width: 100%; 
+    height: 15vh; 
+    margin-bottom: 10px; 
+    font-size: 30px; 
+    text-align: right; 
+    text-indent: 10px;
+    padding: 5px; 
+    border: none; 
+    border-radius: 5px; 
+    background-color: #f1f1f1; 
+    align-content: end;
+    overflow-x: scroll ;
+    overflow-y: hidden;
+    margin-bottom: 20px;
+}
+
+.cal-btns {
+
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn { 
+    width: 20%; 
+    height: 10vh; 
+    margin: 5px; 
+    font-size: 20px; 
+    border: none; 
+    border-radius: 5px; 
+    background-color: #4caf50; 
+    color: white; 
+    cursor: pointer;
+}
+
+
+.btn:hover { 
+    background-color: #45a049; 
+}
+
+.btn:active { 
+    background-color: #3e8e41; 
+}
+
+.AC{ 
+    background-color: #f44336; 
+    width: 45%;
+    height: 10vh;
+    font-size: 20px; 
+    border: none; 
+    border-radius: 5px; 
+
+
+}
+
+.AC:hover { 
+    background-color: #da190b; 
+}
+.AC:active { 
+    background-color: #a71d0b; 
+}
+
+.del { 
+    background-color: #ff9800; 
+    width: 45%;
+    height: 10vh;
+    font-size: 20px; 
+    border: none; 
+    border-radius: 5px;
+}
+
+.del:hover { 
+    background-color: #e68a00; 
+}
+.del:active { 
+    background-color: #b36b00; 
+}
+
+p {
+    margin: 0px;
+    color: rgb(230, 217, 217);
+    text-decoration: dotted underline;
+    text-shadow: black 3px 0 10px;
+    justify-content: center;
+}
+    p > a{
+        color: rgb(230, 217, 217);
+        text-decoration: underline;
+        text-shadow: black 3px 0 10px;
+    }
+
+
+ }
