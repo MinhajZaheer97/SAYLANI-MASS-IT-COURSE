@@ -1,0 +1,6 @@
+1. pehle user se us ka name puchna he or ek continue ka button hoga jis per click kate hi us ka test shuru hogai
+2. ask a user 5 mcqs each having 4 choices
+3. 4 choices me se koi ek hi choice sahi hogi
+4. user kisi bhi choice per click kare to woh hamre pas savee hogai array of  object ki shakal me
+5. choice per click karne ke bad user next per click kare to agle mcqs per chala gai 
+6. last mcq ke bad user ko uska result show ho us ke name ke sath.
