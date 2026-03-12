@@ -48,6 +48,10 @@ function createmcq(){
     option_4.setAttribute("class" , "option-4")
     option_4.innerText = "America"
 
+    var nextbutton = document.createElement("button")
+    nextbutton.setAttribute("class" , "nextbutton")
+    nextbutton.innerText= "Next"
+
 
 
 
@@ -59,6 +63,7 @@ function createmcq(){
     Quiz_1.appendChild(Quiz_1_P)
     Quiz_1.appendChild(Quiz_1_Q)
     Quiz_1.appendChild(OptionContainer)
+    Quiz_1.appendChild(nextbutton)
 
     document.body.appendChild(Quiz_1)
 
