@@ -1,9 +1,10 @@
 var inputdiv = document.querySelector(".input-div");
 var UserName = document.querySelector(".username");
 var ContinueBtn = document.querySelector(".countinuebtn");
+var h1 = document.querySelector(".quiz-title");
 
-function Userdata(name){
-    this.name= name ;
+function Userdata(name) {
+    this.name = name;
 }
 
 function usernamecheck() {
@@ -22,16 +23,20 @@ var selected_option_5 = "";
 
 function createmcq() {
     inputdiv.style.display = "none";
+    h1.style.display = "none";
+
+    var container = document.createElement("div");
+    container.setAttribute("class", "main");
 
     var Quiz_1 = document.createElement("div");
     Quiz_1.setAttribute("class", "container");
 
     var Quiz_1_P = document.createElement("p");
-    Quiz_1_P.setAttribute("class", "Quiz_1_P");
+    Quiz_1_P.setAttribute("class", "Quiz_1_P P");
     Quiz_1_P.innerText = "MCQ NUMBER:1";
 
     var Quiz_1_Q = document.createElement("p");
-    Quiz_1_Q.setAttribute("class", "Quiz_1_Q");
+    Quiz_1_Q.setAttribute("class", "Quiz_1_Q Q");
     Quiz_1_Q.innerText = "Which is the largest city in the world ?";
 
     var OptionContainer = document.createElement("div");
@@ -67,7 +72,9 @@ function createmcq() {
     Quiz_1.appendChild(OptionContainer);
     Quiz_1.appendChild(nextbutton);
 
-    document.body.appendChild(Quiz_1);
+    container.appendChild(Quiz_1);
+
+    document.body.appendChild(container);
 
     var options = document.querySelectorAll(".options");
 
@@ -83,39 +90,43 @@ function createmcq() {
 
     NextButtonofmcq1.addEventListener("click", function () {
         Quiz_1.style.display = "none";
+        container.style.display = "none";
+
+        var container_2 = document.createElement("div");
+        container_2.setAttribute("class", "main-2");
 
         var Quiz_2 = document.createElement("div");
-        Quiz_2.setAttribute("class", "container-2");
+        Quiz_2.setAttribute("class", "container-2 container");
 
         var Quiz_2_P = document.createElement("p");
-        Quiz_2_P.setAttribute("class", "Quiz_2_P");
+        Quiz_2_P.setAttribute("class", "Quiz_2_P P");
         Quiz_2_P.innerText = "MCQ NUMBER:2";
 
         var Quiz_2_Q = document.createElement("p");
-        Quiz_2_Q.setAttribute("class", "Quiz_2_Q");
+        Quiz_2_Q.setAttribute("class", "Quiz_2_Q Q" );
         Quiz_2_Q.innerText = "what is the national language of Pakistan ?";
 
         var OptionContainer_2 = document.createElement("div");
         OptionContainer_2.setAttribute("class", "Optionscontainer-2");
 
         var option_1 = document.createElement("button");
-        option_1.setAttribute("class", "option-1 options-2");
+        option_1.setAttribute("class", "option-1 options-2 options");
         option_1.innerText = "german";
 
         var option_2 = document.createElement("button");
-        option_2.setAttribute("class", "option-2 options-2");
+        option_2.setAttribute("class", "option-2 options-2 options");
         option_2.innerText = "urdu";
 
         var option_3 = document.createElement("button");
-        option_3.setAttribute("class", "option-3 options-2");
+        option_3.setAttribute("class", "option-3 options-2 options");
         option_3.innerText = "english";
 
         var option_4 = document.createElement("button");
-        option_4.setAttribute("class", "option-4 options-2");
+        option_4.setAttribute("class", "option-4 options-2 options");
         option_4.innerText = "arabic";
 
         var nextbutton_2 = document.createElement("button");
-        nextbutton_2.setAttribute("class", "nextbutton-2");
+        nextbutton_2.setAttribute("class", "nextbutton-2 nextbutton");
         nextbutton_2.innerText = "Next";
 
         OptionContainer_2.appendChild(option_1);
@@ -144,39 +155,43 @@ function createmcq() {
 
         NextButtonofmcq3.addEventListener("click", function () {
             Quiz_2.style.display = "none";
+            container_2.style.display = "none";
+
+            var container_3 = document.createElement("div");
+            container_3.setAttribute("class", "main-3 main");
 
             var Quiz_3 = document.createElement("div");
-            Quiz_3.setAttribute("class", "container-3");
+            Quiz_3.setAttribute("class", "container-3 container");
 
             var Quiz_3_P = document.createElement("p");
-            Quiz_3_P.setAttribute("class", "Quiz_3_P");
+            Quiz_3_P.setAttribute("class", "Quiz_3_P P");
             Quiz_3_P.innerText = "MCQ NUMBER:3";
 
             var Quiz_3_Q = document.createElement("p");
-            Quiz_3_Q.setAttribute("class", "Quiz_3_Q");
+            Quiz_3_Q.setAttribute("class", "Quiz_3_Q Q");
             Quiz_3_Q.innerText = "what is the capital of Iran ?";
 
             var OptionContainer_3 = document.createElement("div");
-            OptionContainer_3.setAttribute("class", "Optionscontainer-3");
+            OptionContainer_3.setAttribute("class", "Optionscontainer-3 Optionscontainer");
 
             var option_1 = document.createElement("button");
-            option_1.setAttribute("class", "option-1 options-3");
+            option_1.setAttribute("class", "option-1 options-3 options");
             option_1.innerText = "makkah";
 
             var option_2 = document.createElement("button");
-            option_2.setAttribute("class", "option-2 options-3");
+            option_2.setAttribute("class", "option-2 options-3 options");
             option_2.innerText = "karachi";
 
             var option_3 = document.createElement("button");
-            option_3.setAttribute("class", "option-3 options-3");
+            option_3.setAttribute("class", "option-3 options-3 options");
             option_3.innerText = "newyork";
 
             var option_4 = document.createElement("button");
-            option_4.setAttribute("class", "option-4 options-3");
+            option_4.setAttribute("class", "option-4 options-3 options");
             option_4.innerText = "tehran";
 
             var nextbutton_3 = document.createElement("button");
-            nextbutton_3.setAttribute("class", "nextbutton-3");
+            nextbutton_3.setAttribute("class", "nextbutton-3 nextbutton");
             nextbutton_3.innerText = "Next";
 
             OptionContainer_3.appendChild(option_1);
@@ -189,7 +204,9 @@ function createmcq() {
             Quiz_3.appendChild(OptionContainer_3);
             Quiz_3.appendChild(nextbutton_3);
 
-            document.body.appendChild(Quiz_3);
+            container_3.appendChild(Quiz_3);
+
+            document.body.appendChild(container_3);
 
             var options = document.querySelectorAll(".options-3");
 
@@ -207,39 +224,43 @@ function createmcq() {
 
             NextButtonofmcq4.addEventListener("click", function () {
                 Quiz_3.style.display = "none";
+                container_3.style.display = "none";
+
+                var container_4 = document.createElement("div");
+                container_4.setAttribute("class", "main-4 main");
 
                 var Quiz_4 = document.createElement("div");
-                Quiz_4.setAttribute("class", "container-4");
+                Quiz_4.setAttribute("class", "container-4 container");
 
                 var Quiz_4_P = document.createElement("p");
-                Quiz_4_P.setAttribute("class", "Quiz_4_P");
+                Quiz_4_P.setAttribute("class", "Quiz_4_P P");
                 Quiz_4_P.innerText = "MCQ NUMBER:4";
 
                 var Quiz_4_Q = document.createElement("p");
-                Quiz_4_Q.setAttribute("class", "Quiz_4_Q");
+                Quiz_4_Q.setAttribute("class", "Quiz_4_Q Q");
                 Quiz_4_Q.innerText = "what is the full form of URL ?";
 
                 var OptionContainer_4 = document.createElement("div");
-                OptionContainer_4.setAttribute("class", "Optionscontainer-4");
+                OptionContainer_4.setAttribute("class", "Optionscontainer-4 Optionscontainer");
 
                 var option_1 = document.createElement("button");
-                option_1.setAttribute("class", "option-1 options-4");
+                option_1.setAttribute("class", "option-1 options-4 options");
                 option_1.innerText = "unique resource locator";
 
                 var option_2 = document.createElement("button");
-                option_2.setAttribute("class", "option-2 options-4");
+                option_2.setAttribute("class", "option-2 options-4 options");
                 option_2.innerText = "Uniform Resource Locator";
 
                 var option_3 = document.createElement("button");
-                option_3.setAttribute("class", "option-3 options-4");
+                option_3.setAttribute("class", "option-3 options-4 options");
                 option_3.innerText = "Uniform Resource link";
 
                 var option_4 = document.createElement("button");
-                option_4.setAttribute("class", "option-4 options-4");
+                option_4.setAttribute("class", "option-4 options-4 options");
                 option_4.innerText = "universal remote locater";
 
                 var nextbutton_4 = document.createElement("button");
-                nextbutton_4.setAttribute("class", "nextbutton-4");
+                nextbutton_4.setAttribute("class", "nextbutton-4 nextbutton");
                 nextbutton_4.innerText = "Next";
 
                 OptionContainer_4.appendChild(option_1);
@@ -252,7 +273,9 @@ function createmcq() {
                 Quiz_4.appendChild(OptionContainer_4);
                 Quiz_4.appendChild(nextbutton_4);
 
-                document.body.appendChild(Quiz_4);
+                container_4.appendChild(Quiz_4);
+
+                document.body.appendChild(container);
 
                 var options = document.querySelectorAll(".options-4");
 
@@ -270,39 +293,43 @@ function createmcq() {
 
                 NextButtonofmcq5.addEventListener("click", function () {
                     Quiz_4.style.display = "none";
+                    container_4.style.display = "none";
+
+                    var container_5 = document.createElement("div");
+                    container_5.setAttribute("class", "main-5 main");
 
                     var Quiz_5 = document.createElement("div");
-                    Quiz_5.setAttribute("class", "container-5");
+                    Quiz_5.setAttribute("class", "container-5 container");
 
                     var Quiz_5_P = document.createElement("p");
-                    Quiz_5_P.setAttribute("class", "Quiz_5_P");
+                    Quiz_5_P.setAttribute("class", "Quiz_5_P P");
                     Quiz_5_P.innerText = "MCQ NUMBER:5";
 
                     var Quiz_5_Q = document.createElement("p");
-                    Quiz_5_Q.setAttribute("class", "Quiz_5_Q");
+                    Quiz_5_Q.setAttribute("class", "Quiz_5_Q Q");
                     Quiz_5_Q.innerText = "who is the president of vetican city ?";
 
                     var OptionContainer_5 = document.createElement("div");
-                    OptionContainer_5.setAttribute("class", "Optionscontainer-5");
+                    OptionContainer_5.setAttribute("class", "Optionscontainer-5 optionscontainer");
 
                     var option_1 = document.createElement("button");
-                    option_1.setAttribute("class", "option-1 options-5");
+                    option_1.setAttribute("class", "option-1 options-5 options");
                     option_1.innerText = "imran khan";
 
                     var option_2 = document.createElement("button");
-                    option_2.setAttribute("class", "option-2 options-5");
+                    option_2.setAttribute("class", "option-2 options-5 options");
                     option_2.innerText = "larwis frananchis";
 
                     var option_3 = document.createElement("button");
-                    option_3.setAttribute("class", "option-3 options-5");
+                    option_3.setAttribute("class", "option-3 options-5 options");
                     option_3.innerText = "Sister Raffaella Petrini";
 
                     var option_4 = document.createElement("button");
-                    option_4.setAttribute("class", "option-4 options-5");
+                    option_4.setAttribute("class", "option-4 options-5  options");
                     option_4.innerText = "donal alberd";
 
                     var result = document.createElement("button");
-                    result.setAttribute("class", "nextbutton-5");
+                    result.setAttribute("class", "nextbutton-5 nextbutton");
                     result.innerText = "Next";
 
                     OptionContainer_5.appendChild(option_1);
@@ -315,7 +342,9 @@ function createmcq() {
                     Quiz_5.appendChild(OptionContainer_5);
                     Quiz_5.appendChild(result);
 
-                    document.body.appendChild(Quiz_5);
+                    container_5.appendChild(Quiz_5);
+
+                    document.body.appendChild(container_5);
 
                     var options = document.querySelectorAll(".options-5");
 
@@ -379,7 +408,7 @@ function createmcq() {
                     RESULT.addEventListener("click", function () {
                         Quiz_5.style.display = "none";
 
-                       var res = resultcheck();
+                        var res = resultcheck();
 
                         var ResultContainer = document.createElement("div");
 
@@ -392,7 +421,7 @@ function createmcq() {
                                                 <p  class = 'p-Obtained Marks'>Obtained Marks: ${res.obtainedmarks}</p>
                                                 <p class = 'p-passing marks'>Passing Marks: 30</p>
                                                 <p class 'p-grade'>You are : ${res.grade}</p>
-                                            `
+                                            `;
 
                         document.body.appendChild(ResultContainer);
                     });
