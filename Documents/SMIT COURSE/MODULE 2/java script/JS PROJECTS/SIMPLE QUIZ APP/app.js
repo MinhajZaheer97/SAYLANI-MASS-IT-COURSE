@@ -415,6 +415,11 @@ function createmcq() {
                         var ResultContainer = document.createElement("div")
                         ResultContainer.setAttribute("class", "ResultContainer");
 
+                    var link = document.createElement("p");
+                    link.setAttribute("class", "link");
+                    link.innerHTML = `For code visit my <a href="https://github.com/MinhajZaheer97/SAYLANI-MASS-IT-COURSE">GITHUB </a><br>
+                    designed by Minhaj Zaheer `;
+
                         ResultContainer.innerHTML = `
                                                 <h1>RESULT</h1>
                                                 <p>Name: ${UserName.value}</p>
@@ -427,6 +432,7 @@ function createmcq() {
                                             `;
 
                         document.body.appendChild(ResultContainer);
+                        ResultContainer.appendChild(link);
                     });
                 });
             });

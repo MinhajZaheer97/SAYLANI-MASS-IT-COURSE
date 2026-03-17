@@ -38,7 +38,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin-top: 30%;
+        margin-top: 30vh;
 
     }
 
@@ -87,7 +87,11 @@
         color: #fffffe;
         
     }
-
+    
+    .P{
+        font-size: xx-large;
+        font-weight: bolder;
+    }
     .Optionscontainer{
         display: flex;
         flex-direction: column;
@@ -161,5 +165,12 @@
         color: #fffffe;
     }
     
-
+    .link{
+        color: #fffffe;
+        text-decoration: none;
+        text-align: center;
+        font-weight: bolder;
+        /* margin-top: 10%; */
+        font-size: large;
+    }
 }    
