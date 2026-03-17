@@ -93,7 +93,7 @@ function createmcq() {
         container.style.display = "none";
 
         var container_2 = document.createElement("div");
-        container_2.setAttribute("class", "main-2");
+        container_2.setAttribute("class", "main-2 main");
 
         var Quiz_2 = document.createElement("div");
         Quiz_2.setAttribute("class", "container-2 container");
@@ -107,7 +107,7 @@ function createmcq() {
         Quiz_2_Q.innerText = "what is the national language of Pakistan ?";
 
         var OptionContainer_2 = document.createElement("div");
-        OptionContainer_2.setAttribute("class", "Optionscontainer-2");
+        OptionContainer_2.setAttribute("class", "Optionscontainer-2 Optionscontainer");
 
         var option_1 = document.createElement("button");
         option_1.setAttribute("class", "option-1 options-2 options");
@@ -139,7 +139,9 @@ function createmcq() {
         Quiz_2.appendChild(OptionContainer_2);
         Quiz_2.appendChild(nextbutton_2);
 
-        document.body.appendChild(Quiz_2);
+        container_2.appendChild(Quiz_2);
+
+        document.body.appendChild(container_2);
 
         var options = document.querySelectorAll(".options-2");
 
@@ -275,7 +277,7 @@ function createmcq() {
 
                 container_4.appendChild(Quiz_4);
 
-                document.body.appendChild(container);
+                document.body.appendChild(container_4);
 
                 var options = document.querySelectorAll(".options-4");
 
@@ -310,7 +312,7 @@ function createmcq() {
                     Quiz_5_Q.innerText = "who is the president of vetican city ?";
 
                     var OptionContainer_5 = document.createElement("div");
-                    OptionContainer_5.setAttribute("class", "Optionscontainer-5 optionscontainer");
+                    OptionContainer_5.setAttribute("class", "Optionscontainer-5 Optionscontainer");
 
                     var option_1 = document.createElement("button");
                     option_1.setAttribute("class", "option-1 options-5 options");
@@ -410,7 +412,8 @@ function createmcq() {
 
                         var res = resultcheck();
 
-                        var ResultContainer = document.createElement("div");
+                        var ResultContainer = document.createElement("div")
+                        ResultContainer.setAttribute("class", "ResultContainer");
 
                         ResultContainer.innerHTML = `
                                                 <h1>RESULT</h1>
