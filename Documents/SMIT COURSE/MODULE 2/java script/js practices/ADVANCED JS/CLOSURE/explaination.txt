@@ -1,0 +1,1 @@
+"Jab ek inner function, outer function ke variables ko apne saath capture kar leta hai — aur outer function execute hone ke baad bhi woh variables memory mein zinda rehte hain — isse closure kehte hain. JS mein har function apna lexical scope saath carry karta hai."
