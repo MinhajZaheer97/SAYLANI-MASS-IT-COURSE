@@ -1,0 +1,57 @@
+
+### **Default Parameters: Quick Summary Cheat Sheet**
+
+#### **1. Main Maqsad (The "Why")**
+
+Function ko **"Undefined"** se bachana. Jab kisi variable ko value nahi milti, to JS usay default value de deti hai taake program crash na ho ya `NaN` (Not a Number) jese errors na ayen.
+
+#### **2. Syntax**
+
+```javascript
+function greet(user = "Guest") {
+    console.log(user);
+}
+
+```
+
+#### **3. Kab Trigger Hota Hai? (The Rules)**
+
+Ye sab se important point hai:
+
+* **Trigger Hoga:** Agar argument **Missing** ho ya **`undefined`** pass kiya jaye.
+* **Trigger NAHI Hoga:** Agar aap **`null`**, **`0`**, **`false`**, ya **`""`** (empty string) pass karen. JS inhein valid values maanti hai.
+
+#### **4. Execution Order (Positional Mapping)**
+
+JS hamesha **pehla argument pehle parameter** ko deta hai.
+
+* **Rule of Thumb:** Hamesha default parameters ko parameters ki list mein **aakhir (end)** par rakhen.
+* ❌ `function(a = 10, b)` — Bura tareeka (a ko skip karna mushkil hai).
+* ✅ `function(b, a = 10)` — Sahi tareeka.
+
+
+
+#### **5. Advanced Capabilities**
+
+* **Dynamic Values:** Default value koi static number ya string hona zaroori nahi, ye kisi **function ki return value** ya **doosra parameter** bhi ho sakta hai.
+* `function calculate(price, tax = price * 0.1)`
+
+
+* **Evaluated at Call Time:** Ye har dafa naye siray se calculate hoti hai jab function call hota hai.
+
+---
+
+### **Quick Comparison Table**
+
+| Scenario | Input | Result (Parameter Value) |
+| --- | --- | --- |
+| **Missing Argument** | `func()` | Default Value |
+| **Passing Undefined** | `func(undefined)` | Default Value |
+| **Passing Null** | `func(null)` | `null` |
+| **Passing Zero** | `func(0)` | `0` |
+| **Passing Value** | `func("Ali")` | `"Ali"` |
+
+---
+
+> **Pro Tip:** Agar aapko kabhi default parameter ko skip karke usse agle parameter par jana ho, to aapko majbooran `undefined` pass karna parta hai.
+> `greet(undefined, 25);` // Yahan name default uthayega aur age 25 ho jayegi.
