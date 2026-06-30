@@ -70,6 +70,6 @@ function move(playermove) {
 alert(
   `Your move is ${playermove} and computer move is ${computermove}
 ${result}
-Wins = ${score.wins}, Losses = ${score.losses}, Draws = ${score.draws}`
+Wins = ${score.wins}, Losses = ${score.losses}, Draw = ${score.draws}`
 );
 }
