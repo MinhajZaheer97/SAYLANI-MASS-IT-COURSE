@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quick Todo</title>
+    <script defer src="TODO.js"></script>
+    <script defer src="alert.js"></script>
+    <link rel="stylesheet" href="TODO.css" />
+    <link rel="stylesheet" href="alert.css" />
+  </head>
+  <body>
+    <!-- // !TODO LIST -->
+
+    <h1>QUICK TODO LIST</h1>
+    <hr />
+    <div class="main">
+      <input type="text" class="todo-input" placeholder="Type anything" />
+      <button class="todo-button" onclick="addtodo()">Add Todo</button>
+    </div>
+    <div class="main-todo-container">
+      <div class="todo-container"></div>
+    </div>
+    <div class="clear-all-container">
+      <button class="clear-all" onclick="clearall()">clear all</button>
+    </div>
+
+    <!-- // !COSTAMOZED POPUP -->
+    <div class="alert-box">
+      <div class="alert-content">
+        <div class="close-container">
+          <button class="close-btn">&times;</button>
+        </div>
+
+        <h2>WARNING</h2>
+        <p></p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+
+### **Rest Parameter Summary (`...`)**
+
+#### **1. Main Concept**
+
+Rest parameter ka kaam hai **"Baaki sab ko samait lena"**. Jab aapko function mein ye nahi pata hota ke user kitne arguments bhejega, to aap Rest Parameter use karte hain taake wo saare arguments ko aik **Array** mein ikatha kar de.
+
+#### **2. Syntax**
+
+```javascript
+function listItems(...items) {
+    console.log(items); // items ab aik Array hai
+}
+
+```
+
+#### **3. Golden Rules (Hamesha Yaad Rakhen)**
+
+* **The Last Position:** Rest parameter hamesha function ki parameter list mein **sab se aakhir** mein aata hai. Iske baad kuch nahi likh sakte.
+* ✅ `function(first, second, ...others)`
+* ❌ `function(...others, last)`
+
+
+* **Only One:** Aik function mein sirf **aik** hi rest parameter ho sakta hai.
+* **True Array:** Purane `arguments` object ke bar-aks (unlike), Rest parameter humein aik **asli Array** deta hai jis par hum `map`, `filter`, aur `for...of` loops asani se chala sakte hain.
+
+---
+
+### **4. Quick Comparison Table**
+
+| Feature | Description |
+| --- | --- |
+| **Input** | Unlimited arguments (10, 20, 30...) |
+| **Output** | Aik single Array (`[10, 20, 30]`) |
+| **Trigger** | Tab chalta hai jab arguments pass kiye jayen |
+| **Empty Case** | Agar koi argument na ho, to ye aik **Empty Array** `[]` deta hai |
+
+---
+
+### **5. For...of Connection**
+
+Rest parameter ke saath `for...of` loop ka combination best hai kyunke Rest parameter humein Array deta hai aur `for...of` asani se us Array ki **Values** nikal leta hai.
+
+```javascript
+function sumAll(...numbers) {
+    let total = 0;
+    for (let n of numbers) {
+        total += n; // Har value ko bari bari total mein add karta hai
+    }
+    return total;
+}
+

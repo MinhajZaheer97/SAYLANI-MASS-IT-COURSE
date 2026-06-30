@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  
+</head>
+<body>
+    
+
+
+    <script>
+        document.write("<h1>Marksheet</h1>")
+
+        var totalmarks = +prompt("what is the total marks")
+        var obtainedmarks = +prompt("what is the abtained marks")
+        var percentage = ((obtainedmarks / totalmarks) * 100).toFixed(1);
+        
+        if (percentage >= 80){
+            var grade = "A1"
+            var remarks = "excellent"
+        }else if(percentage >= 70){
+            var grade = "A"
+            var remarks = "good"
+        }else if(percentage >= 60){
+            var grade = "B"
+            var remarks = "you need to improve"
+        }else if(percentage < 60){
+            var grade = "fail"
+            var remarks = "sorry you need to die"
+        }
+
+
+        document.write("total marks = " + totalmarks + "<br>")
+        document.write("obtained marks = " + obtainedmarks + "<br>")
+        document.write("percentage = " + percentage + "%" + "<br>")
+        document.write("grade = " + grade + "<br>")
+        document.write("remarks = " + remarks + "<br>")
+
+
+
+
+
+        
+
+        
+    </script>
+</body>
+</html>

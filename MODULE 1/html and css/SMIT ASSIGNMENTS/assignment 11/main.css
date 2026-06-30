@@ -1,0 +1,200 @@
+#main {
+  display: flex;
+  justify-content: center;
+}
+
+#sidebarmain {
+  width: 260px;
+  flex-shrink: 0;
+  margin-top: 200px;
+}
+
+#sidebar {
+  border: 1px solid #e7e8e9;
+  width: 260px;
+  height: 630px;
+  border-radius: 10px;
+
+  overflow-y: auto;
+
+  font-size: large;
+
+  display: inline;
+}
+
+#sidebar > button {
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 10px;
+  height: auto;
+  color: black;
+  display: inline;
+}
+
+#sidebar > input {
+  border: 0px solid white;
+  padding: 10px;
+  width: auto;
+  border-radius: 50px;
+  outline: none;
+  background-color: #f7f8f8;
+  display: inline;
+}
+
+#sidebar > select {
+  border: 0px solid white;
+  outline: none;
+  display: inline;
+}
+
+h3 {
+  font-weight: bold;
+  display: inline;
+}
+
+#mainbox {
+  width: 1000px;
+
+  margin-top: 200px;
+  /* margin-left: 24%; */
+}
+
+img {
+  width: 50px;
+  height: 50px;
+}
+
+#searchbarinmainboxmain {
+  display: flex;
+  justify-content: center;
+  width: auto;
+}
+
+#searchbarinmainbox {
+  width: 95%;
+}
+
+#s {
+  border: 0px solid white;
+  padding: 10px;
+  background-color: #f7f8f8;
+  font-size: larger;
+  width: 100%;
+  height: 50px;
+  border-radius: 50px;
+  outline: none;
+}
+
+#signupimage {
+display: flex;
+    background-color: #ffdddd;
+    border-radius: 20px 20px 20px 20px;
+    height: 250px;
+  z-index: -1;
+
+}
+
+.image {
+  background-color: #ffdddd;
+  border-radius: 20px 20px 20px 20px;
+}
+
+.imagee {
+  background-color: #feddd8;
+  border-radius: 20px 20px 20px 20px;
+  position: relative;
+  left: 90%;
+  bottom: 80%;
+  width: fit-content;
+  
+}
+
+#panda {
+  width: 398px;
+  height: 200px;
+}
+
+#Yourdailydealsmainbox {
+  display: flex;
+  gap: 20px;
+}
+
+.Yourdailydealssubbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  height: 100px;
+  border-radius: 20px;
+  background-color: #ff2b85;
+}
+
+.imge {
+  width: 50%;
+  height: 100%;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+}
+
+.off {
+  width: 50%;
+  height: 100%;
+  align-content: center;
+  font-weight: bold;
+  padding-left: 20px;
+}
+
+.off > p {
+  background-color: #ffdddd;
+  display: inline;
+}
+
+.cuisinesmainbox {
+  display: flex;
+  overflow-x: scroll;
+  gap: 20px;
+}
+
+.cuisinesmainbox div img {
+  border-radius: 10px;
+  width: 120px;
+  height: 100px;
+}
+
+.allresturantsmain {
+  height: 320px;
+}
+
+.allresturantssubmain {
+  display: flex;
+
+  height: 100%;
+  gap: 3%;
+}
+
+.allresturantssubmain div {
+  border-radius: 20px;
+  width: 35%;
+  height: 100%;
+  border: 0.5px solid #e8e9ea;
+}
+
+.allresturantssubmain > div > img {
+  width: 100%;
+  height: 70%;
+  border-radius: 20px 20px 0px 0px;
+}
+
+.biryani {
+  font-weight: bolder;
+  font-size: large;
+}
+
+.image > h2 {
+  font-size: 40px;
+}

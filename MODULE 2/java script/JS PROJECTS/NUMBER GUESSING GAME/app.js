@@ -1,0 +1,23 @@
+
+var random;
+var userInput = Number(prompt("Guess a number between 1 to 10: "));;
+
+
+while(userInput !== random){
+ 
+ 
+    random = Math.floor(Math.random() * 10) + 1;
+
+
+
+    if(userInput < random){
+        alert("Too low! Try again.the corrct number was " + random);
+    } 
+    else if(userInput > random){
+        alert("Too high! Try again.the corrct number was " + random);
+    }
+
+    userInput = Number(prompt("Guess again between 1 to 10: "));
+}
+
+alert("Congratulations! You guessed the correct number: " + random);

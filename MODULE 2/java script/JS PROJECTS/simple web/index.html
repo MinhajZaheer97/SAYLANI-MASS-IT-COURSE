@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Tab Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">MyStore</div>
+        <ul class="nav-links">
+            <li><a href="#" class="nav-item active" onclick="openSection(event, 'home')">Home</a></li>
+            <li><a href="#" class="nav-item" onclick="openSection(event, 'electronics')">Electronics</a></li>
+            <li><a href="#" class="nav-item" onclick="openSection(event, 'books')">Books</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        
+        <section id="home" class="section active">
+            <h2>Welcome to MyStore</h2>
+            <p>Upar diye gaye menu par click kar ke sections change karen.</p>
+        </section>
+
+        <section id="electronics" class="section">
+            <h2>Electronics Items</h2>
+            <div class="items-container">
+                <div class="item-card">💻 Laptop</div>
+                <div class="item-card">📱 Mobile</div>
+                <div class="item-card">🎧 Headphones</div>
+            </div>
+        </section>
+
+        <section id="books" class="section">
+            <h2>Books Collection</h2>
+            <div class="items-container">
+                <div class="item-card">📚 Story Book</div>
+                <div class="item-card">🧪 Science Book</div>
+                <div class="item-card">🎨 Comic Book</div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

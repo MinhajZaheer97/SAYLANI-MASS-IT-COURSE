@@ -1,0 +1,211 @@
+JavaScript Fundamentals - Complete Summary
+
+
+1. Variable Declarations
+
+VAR
+Scope: Function scoped
+Hoisting: Yes (undefined value)
+Redeclaration: Allowed
+Reassignment: Allowed
+
+LET
+Scope: Block scoped
+Hoisting: Yes (but in TDZ)
+Redeclaration: Not allowed
+Reassignment: Allowed
+
+CONST
+Scope: Block scoped
+Hoisting: Yes (but in TDZ)
+Redeclaration: Not allowed
+Reassignment: Not allowed
+
+
+
+
+2. Scoping Concepts
+
+Global Scope
+Sab jagah access ho sakta hai
+Script ke start se end tak available
+
+Function Scope
+Sirf function ke andar access
+var function scoped hota hai
+
+Block Scope {}
+Sirf {} brackets ke andar access
+let aur const block scoped hote hain
+
+
+
+
+3. Hoisting
+
+VAR Hoisting
+javascript
+
+
+console.log(x); // undefined (no error)
+var x = 5;
+memory men move karta he
+Value undefined set ho jati hai
+
+LET/CONST Hoisting
+javascript
+
+
+console.log(y); // ReferenceError
+let y = 10;
+memory men move karta he
+Lekin <uninitialized> state mein rehti hai (TDZ)
+
+
+
+
+
+4. Temporal Dead Zone (TDZ)
+What is TDZ?
+Time between declaration and initialization
+let/const variables <uninitialized> state mein hote hain
+TDZ Behavior
+javascript
+
+
+console.log(a); // undefined (var)
+console.log(b); // ReferenceError (let - TDZ)
+console.log(c); // ReferenceError (const - TDZ)
+
+var a = "Hello";
+let b = "World"; 
+const c = "JS";
+
+
+
+
+
+5. Execution Context
+Phases
+Creation Phase (Memory allocation)
+Execution Phase (Code execution)
+Types
+Global Execution Context
+Function Execution Context
+Block Execution Context (only for let/const)
+Components
+Variable Environment
+Lexical Environment
+this binding
+
+
+
+6. Memory Management
+VAR Memory
+
+
+var name;
+// Memory: name → undefined (immediately accessible)
+LET/CONST Memory
+
+
+let name;
+// Memory: name → <uninitialized> (TDZ - not accessible)
+7. Variable Combination Rules
+Combination	Result	Reason
+var + var	✅ Works	Redeclaration allowed
+var + let	❌ Error	Same identifier
+let + let	❌ Error	Redeclaration not allowed
+let + var	❌ Error	Same identifier
+const + any	❌ Error	Same identifier conflicts
+
+
+
+
+8. Block Scope Details
+Block Creation
+javascript
+
+
+{
+    // New block execution context
+    let blockVar = "Inside block";
+    const blockConst = "Also inside";
+}
+// Block context destroyed here
+
+Block vs Global
+javascript
+
+
+var globalVar = "Global";
+let globalLet = "Global Let";
+
+{
+    var blockVar = "Still Global";    // Goes to global context
+    let blockLet = "Actually Block";  // Goes to block context
+}
+
+console.log(globalVar);  // ✅ Works
+console.log(globalLet);  // ✅ Works
+console.log(blockVar);   // ✅ Works (var is global)
+console.log(blockLet);   // ❌ ReferenceError
+
+
+
+
+
+9. Key Differences Summary
+Feature	VAR	LET	CONST
+Scope	Function	Block	Block
+Hoisting	With undefined	With TDZ	With TDZ
+Redeclaration	✅ Allowed	❌ Not Allowed	❌ Not Allowed
+Reassignment	✅ Allowed	✅ Allowed	❌ Not Allowed
+TDZ	❌ No	✅ Yes	✅ Yes
+10. Common Interview Points
+Hoisting Example
+javascript
+
+
+console.log(a); // undefined
+console.log(b); // ReferenceError
+console.log(c); // ReferenceError
+
+var a = "Var";
+let b = "Let";
+const c = "Const";
+Block Scope Example
+javascript
+
+
+{
+    console.log(x); // ReferenceError
+    let x = "Hello";
+    console.log(x); // "Hello"
+}
+Redeclaration Errors
+javascript
+
+
+var name = "Ahmed";
+let name = "Ali"; // SyntaxError: Identifier 'name' already declared
+
+
+
+11. Best Practices
+Use const by default
+Use let when reassignment needed
+Avoid var (legacy)
+Always declare before use
+Understand scope boundaries
+
+
+12. Memory Lifecycle
+VAR Lifecycle
+
+
+Declaration → undefined in memory → Assignment → Use
+LET/CONST Lifecycle
+
+
+Declaration → <uninitialized> in TDZ → Initialization → Use

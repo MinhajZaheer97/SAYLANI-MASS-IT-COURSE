@@ -1,0 +1,86 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Isse poora page screen ke andar fit rahega aur scroll nahi hoga */
+html, body {
+    height: 100%;
+    overflow: hidden; 
+    background-color: #f4f4f4;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #232f3e; /* Amazon dark blue */
+    color: white;
+    padding: 15px 30px;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+/* Hover karne par ya active hone par orange color */
+.nav-links a:hover, .nav-links a.active {
+    background-color: #febd69; /* Amazon orange */
+    color: black;
+}
+
+/* Content Area Styling */
+.content {
+    padding: 30px;
+}
+
+/* Default settings: Saare sections ko chupa do */
+.section {
+    display: none;
+}
+
+/* Jis section me 'active' class hogi, sirf wahi dikhega */
+.section.active {
+    display: block;
+}
+
+/* Items ke dibbe (Cards) set karne ke liye */
+.items-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.item-card {
+    background-color: white;
+    padding: 40px 20px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    width: 150px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #ddd;
+}

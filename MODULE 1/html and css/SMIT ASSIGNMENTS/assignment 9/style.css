@@ -1,0 +1,57 @@
+body{
+    background-color: black;
+    color:black;
+    place-items: center;
+    margin: 10% ;
+}
+#main{
+    border:  1px solid white;
+     width: auto;
+      height: auto;
+      background-color: rgb(151, 151, 151);
+      
+      border-radius: 10px 10px 10px 10px;
+      text-shadow: 2px 5px 7px rgb(255, 255, 255);
+      padding: 0.5%;
+
+    
+
+}
+img{
+    width: 400px;
+    border-radius: 10px 10px 10px 10px;
+    display: block;
+    
+}
+
+i{
+    color: orange; 
+    display: block;
+     text-align: center;
+    font-size: large;
+}
+del{
+    color: orange; 
+     text-align: center;
+    font-size: large;
+    display: block;
+}
+span{
+    display: block;
+    color: orange;
+    text-align: center;
+    font-size: 50px;
+}
+#right{
+   background-color: black;
+   color: white;
+    text-align: right;
+}
+#left{
+    background-color: black;
+   color: white;
+    position: absolute;
+    left:58%;
+}
+
+
