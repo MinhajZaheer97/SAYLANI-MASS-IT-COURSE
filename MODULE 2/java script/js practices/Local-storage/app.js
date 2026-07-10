@@ -5,7 +5,7 @@ let userPass= document.querySelector(".pass")
 signin.addEventListener("click" , ()=>{
 if(userName.value !== "" && userPass.value !== ""){
     localStorage.setItem('userName', userName.value)
-    console.log("hello");   
+    console.log("hello");
 }
 console.log(userName.value !== "",userPass.value !== "");
 

@@ -1,0 +1,1224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyApp — Dashboard</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --bg: #0b0f1a;
+        --surface: #111827;
+        --border: #1e2a3a;
+        --accent: #3b82f6;
+        --accent2: #6366f1;
+        --success: #22c55e;
+        --error: #ef4444;
+        --warn: #f59e0b;
+        --text: #e2e8f0;
+        --muted: #64748b;
+        --card: #151f2e;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        min-height: 100vh;
+      }
+
+      /* ───── LOADER ───── */
+      #loader {
+        position: fixed;
+        inset: 0;
+        background: var(--bg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 999;
+        transition: opacity 0.3s;
+      }
+      .spin {
+        width: 36px;
+        height: 36px;
+        border: 3px solid var(--border);
+        border-top-color: var(--accent);
+        border-radius: 50%;
+        animation: spin 0.7s linear infinite;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* ───── AUTH PAGE ───── */
+      #auth-page {
+        display: none;
+        min-height: 100vh;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        background: radial-gradient(
+          ellipse at 60% 0%,
+          #1a2744 0%,
+          var(--bg) 60%
+        );
+      }
+
+      .auth-box {
+        width: 100%;
+        max-width: 420px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 40px 36px;
+        box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+      }
+
+      .auth-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 28px;
+      }
+      .auth-logo .dot {
+        width: 32px;
+        height: 32px;
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+        border-radius: 8px;
+      }
+      .auth-logo span {
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: -0.3px;
+      }
+
+      .auth-tabs {
+        display: flex;
+        background: var(--bg);
+        border-radius: 10px;
+        padding: 4px;
+        margin-bottom: 28px;
+      }
+      .auth-tab {
+        flex: 1;
+        padding: 9px;
+        background: none;
+        border: none;
+        color: var(--muted);
+        font:
+          500 14px "Inter",
+          sans-serif;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .auth-tab.active {
+        background: var(--surface);
+        color: var(--text);
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+      }
+
+      .auth-title {
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 6px;
+      }
+      .auth-sub {
+        font-size: 14px;
+        color: var(--muted);
+        margin-bottom: 24px;
+      }
+
+      .field {
+        margin-bottom: 16px;
+      }
+      .field label {
+        display: block;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--muted);
+        margin-bottom: 6px;
+        letter-spacing: 0.3px;
+      }
+      .field input {
+        width: 100%;
+        padding: 11px 14px;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        color: var(--text);
+        font:
+          14px "Inter",
+          sans-serif;
+        outline: none;
+        transition: border 0.2s;
+      }
+      .field input:focus {
+        border-color: var(--accent);
+      }
+      .field input::placeholder {
+        color: var(--muted);
+      }
+
+      .btn-primary {
+        width: 100%;
+        padding: 12px;
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+        border: none;
+        border-radius: 10px;
+        color: #fff;
+        font:
+          600 15px "Inter",
+          sans-serif;
+        cursor: pointer;
+        transition:
+          opacity 0.2s,
+          transform 0.1s;
+        margin-top: 4px;
+      }
+      .btn-primary:hover {
+        opacity: 0.9;
+      }
+      .btn-primary:active {
+        transform: scale(0.99);
+      }
+      .btn-primary:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      .toast {
+        margin-top: 16px;
+        padding: 11px 14px;
+        border-radius: 10px;
+        font-size: 14px;
+        display: none;
+      }
+      .toast.error {
+        background: rgba(239, 68, 68, 0.12);
+        border: 1px solid rgba(239, 68, 68, 0.3);
+        color: #fca5a5;
+        display: block;
+      }
+      .toast.success {
+        background: rgba(34, 197, 94, 0.12);
+        border: 1px solid rgba(34, 197, 94, 0.3);
+        color: #86efac;
+        display: block;
+      }
+
+      /* ───── DASHBOARD ───── */
+      #dash-page {
+        display: none;
+        min-height: 100vh;
+        flex-direction: column;
+      }
+
+      /* Navbar */
+      .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 28px;
+        height: 60px;
+        background: var(--surface);
+        border-bottom: 1px solid var(--border);
+        position: sticky;
+        top: 0;
+        z-index: 50;
+      }
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .nav-logo .dot {
+        width: 24px;
+        height: 24px;
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+        border-radius: 6px;
+      }
+      .nav-logo span {
+        font-size: 16px;
+        font-weight: 700;
+      }
+
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .nav-clock {
+        font:
+          500 13px "JetBrains Mono",
+          monospace;
+        color: var(--muted);
+        margin-right: 12px;
+      }
+
+      .nav-btn {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        padding: 7px 14px;
+        background: none;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        color: var(--text);
+        font:
+          500 13px "Inter",
+          sans-serif;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .nav-btn:hover {
+        background: var(--border);
+      }
+      .nav-btn.danger {
+        border-color: rgba(239, 68, 68, 0.3);
+        color: #fca5a5;
+      }
+      .nav-btn.danger:hover {
+        background: rgba(239, 68, 68, 0.1);
+      }
+
+      /* Avatar */
+      .avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font:
+          700 13px "Inter",
+          sans-serif;
+        color: #fff;
+        flex-shrink: 0;
+      }
+
+      /* Main content */
+      .dash-content {
+        flex: 1;
+        padding: 28px;
+        max-width: 1100px;
+        margin: 0 auto;
+        width: 100%;
+      }
+
+      /* Welcome card */
+      .welcome-card {
+        background: linear-gradient(135deg, #1a2744, #1a1f35);
+        border: 1px solid rgba(59, 130, 246, 0.2);
+        border-radius: 16px;
+        padding: 28px 32px;
+        margin-bottom: 24px;
+        position: relative;
+        overflow: hidden;
+      }
+      .welcome-card::before {
+        content: "";
+        position: absolute;
+        top: -60px;
+        right: -60px;
+        width: 220px;
+        height: 220px;
+        background: radial-gradient(
+          circle,
+          rgba(99, 102, 241, 0.25) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .welcome-card h2 {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+      .welcome-card p {
+        font-size: 14px;
+        color: var(--muted);
+      }
+      .welcome-date {
+        font:
+          500 13px "JetBrains Mono",
+          monospace;
+        color: var(--accent);
+        margin-top: 12px;
+      }
+
+      /* Stats row */
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 16px;
+        margin-bottom: 24px;
+      }
+      .stat-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .stat-label {
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--muted);
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
+      .stat-value {
+        font:
+          700 26px "JetBrains Mono",
+          monospace;
+      }
+      .stat-sub {
+        font-size: 12px;
+        color: var(--muted);
+      }
+      .stat-card.blue {
+        border-top: 2px solid var(--accent);
+      }
+      .stat-card.purple {
+        border-top: 2px solid var(--accent2);
+      }
+      .stat-card.green {
+        border-top: 2px solid var(--success);
+      }
+
+      /* Grid */
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      @media (max-width: 700px) {
+        .grid-2 {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .section-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 24px;
+      }
+      .section-card h3 {
+        font-size: 15px;
+        font-weight: 600;
+        margin-bottom: 16px;
+      }
+
+      /* Quick links */
+      .quick-links {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .quick-link {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 14px;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.2s;
+        text-decoration: none;
+        color: var(--text);
+      }
+      .quick-link:hover {
+        border-color: var(--accent);
+        background: rgba(59, 130, 246, 0.06);
+      }
+      .quick-link .icon {
+        font-size: 18px;
+      }
+      .quick-link .link-text {
+        font-size: 14px;
+        font-weight: 500;
+      }
+      .quick-link .link-sub {
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      /* Activity feed */
+      .activity {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .act-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .act-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--accent);
+        margin-top: 5px;
+        flex-shrink: 0;
+      }
+      .act-text {
+        font-size: 13px;
+        color: var(--muted);
+      }
+      .act-text strong {
+        color: var(--text);
+      }
+      .act-time {
+        font:
+          400 11px "JetBrains Mono",
+          monospace;
+        color: var(--muted);
+        margin-top: 2px;
+      }
+
+      /* ───── PROFILE MODAL ───── */
+      .modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 100;
+        padding: 24px;
+        display: none;
+      }
+      .modal-overlay.open {
+        display: flex;
+      }
+      .modal {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 32px;
+        width: 100%;
+        max-width: 440px;
+        box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
+      }
+      .modal-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 24px;
+      }
+      .modal-header h2 {
+        font-size: 18px;
+        font-weight: 700;
+      }
+      .modal-close {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        background: none;
+        border: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 18px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.2s;
+      }
+      .modal-close:hover {
+        background: var(--border);
+        color: var(--text);
+      }
+
+      .profile-avatar-big {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font:
+          700 24px "Inter",
+          sans-serif;
+        color: #fff;
+        margin: 0 auto 20px;
+      }
+
+      .profile-info {
+        text-align: center;
+        margin-bottom: 24px;
+      }
+      .profile-info h3 {
+        font-size: 18px;
+        font-weight: 600;
+      }
+      .profile-info p {
+        font-size: 14px;
+        color: var(--muted);
+        margin-top: 4px;
+      }
+
+      .divider {
+        border: none;
+        border-top: 1px solid var(--border);
+        margin: 20px 0;
+      }
+
+      .btn-secondary {
+        width: 100%;
+        padding: 11px;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        color: var(--text);
+        font:
+          500 14px "Inter",
+          sans-serif;
+        cursor: pointer;
+        transition: 0.2s;
+        margin-bottom: 8px;
+      }
+      .btn-secondary:hover {
+        border-color: var(--accent);
+      }
+
+      .edit-section {
+        display: none;
+      }
+      .edit-section.open {
+        display: block;
+      }
+
+      /* Notification badge */
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: var(--accent);
+        color: #fff;
+        font-size: 10px;
+        font-weight: 700;
+        margin-left: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- LOADER -->
+    <div id="loader"><div class="spin"></div></div>
+
+    <!-- ───── AUTH PAGE ───── -->
+    <div id="auth-page" style="display: none">
+      <div class="auth-box">
+        <div class="auth-logo">
+          <div class="dot"></div>
+          <span>MyApp</span>
+        </div>
+
+        <div class="auth-tabs">
+          <button
+            class="auth-tab active"
+            id="tab-login"
+            onclick="switchTab('login')"
+          >
+            Sign In
+          </button>
+          <button
+            class="auth-tab"
+            id="tab-register"
+            onclick="switchTab('register')"
+          >
+            Create Account
+          </button>
+        </div>
+
+        <!-- LOGIN FORM -->
+        <div id="form-login">
+          <div class="auth-title">Welcome back</div>
+          <div class="auth-sub">Sign in to continue to your dashboard</div>
+
+          <div class="field">
+            <label>EMAIL</label>
+            <input
+              type="email"
+              id="login-email"
+              placeholder="you@example.com"
+            />
+          </div>
+          <div class="field">
+            <label>PASSWORD</label>
+            <input type="password" id="login-password" placeholder="••••••••" />
+          </div>
+          <button class="btn-primary" id="login-btn" onclick="login()">
+            Sign In
+          </button>
+          <div class="toast" id="login-toast"></div>
+        </div>
+
+        <!-- REGISTER FORM -->
+        <div id="form-register" style="display: none">
+          <div class="auth-title">Create your account</div>
+          <div class="auth-sub">Get started — it only takes a minute</div>
+
+          <div class="field">
+            <label>USERNAME</label>
+            <input type="text" id="reg-username" placeholder="johndoe" />
+          </div>
+          <div class="field">
+            <label>EMAIL</label>
+            <input type="email" id="reg-email" placeholder="you@example.com" />
+          </div>
+          <div class="field">
+            <label>PASSWORD</label>
+            <input
+              type="password"
+              id="reg-password"
+              placeholder="Min. 8 characters"
+            />
+          </div>
+          <button class="btn-primary" id="register-btn" onclick="register()">
+            Create Account
+          </button>
+          <div class="toast" id="register-toast"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ───── DASHBOARD PAGE ───── -->
+    <div
+      id="dash-page"
+      style="display: none; flex-direction: column; min-height: 100vh"
+    >
+      <!-- Navbar -->
+      <nav class="navbar">
+        <div class="nav-logo">
+          <div class="dot"></div>
+          <span>MyApp</span>
+        </div>
+        <div class="nav-right">
+          <div class="nav-clock" id="nav-clock">--:--:--</div>
+          <button class="nav-btn" onclick="openProfile()">
+            <div class="avatar" id="nav-avatar">?</div>
+            <span id="nav-name">User</span>
+          </button>
+          <button class="nav-btn danger" onclick="logout()">Sign Out</button>
+        </div>
+      </nav>
+
+      <!-- Main -->
+      <div class="dash-content">
+        <!-- Welcome card -->
+        <div class="welcome-card">
+          <h2>Hello, <span id="welcome-name">there</span> 👋</h2>
+          <p>Here's what's happening with your account today.</p>
+          <div class="welcome-date" id="welcome-date">--</div>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats">
+          <div class="stat-card blue">
+            <div class="stat-label">Days Active</div>
+            <div class="stat-value" id="stat-days">1</div>
+            <div class="stat-sub">since joining</div>
+          </div>
+          <div class="stat-card purple">
+            <div class="stat-label">Account Status</div>
+            <div
+              class="stat-value"
+              style="font-size: 18px; color: var(--success)"
+            >
+              Active
+            </div>
+            <div class="stat-sub">verified member</div>
+          </div>
+          <div class="stat-card green">
+            <div class="stat-label">Logins</div>
+            <div class="stat-value" id="stat-logins">1</div>
+            <div class="stat-sub">total sessions</div>
+          </div>
+        </div>
+
+        <!-- Grid -->
+        <div class="grid-2">
+          <!-- Quick Links -->
+          <div class="section-card">
+            <h3>Quick Links</h3>
+            <div class="quick-links">
+              <a class="quick-link" onclick="openProfile()">
+                <span class="icon">👤</span>
+                <div>
+                  <div class="link-text">My Profile</div>
+                  <div class="link-sub">Edit your info & change password</div>
+                </div>
+              </a>
+              <a class="quick-link" href="mailto:support@myapp.com">
+                <span class="icon">📧</span>
+                <div>
+                  <div class="link-text">Support</div>
+                  <div class="link-sub">Get help from our team</div>
+                </div>
+              </a>
+              <a class="quick-link" onclick="showComingSoon(this)">
+                <span class="icon">⚙️</span>
+                <div>
+                  <div class="link-text">Settings</div>
+                  <div class="link-sub">Notifications, privacy & more</div>
+                </div>
+              </a>
+              <a class="quick-link" onclick="showComingSoon(this)">
+                <span class="icon">📊</span>
+                <div>
+                  <div class="link-text">Analytics</div>
+                  <div class="link-sub">View your usage stats</div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Activity -->
+          <div class="section-card">
+            <h3>Recent Activity</h3>
+            <div class="activity" id="activity-feed">
+              <div style="color: var(--muted); font-size: 14px">
+                Loading activity…
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ───── PROFILE MODAL ───── -->
+    <div class="modal-overlay" id="profile-modal">
+      <div class="modal">
+        <div class="modal-header">
+          <h2>My Profile</h2>
+          <button class="modal-close" onclick="closeProfile()">✕</button>
+        </div>
+
+        <div class="profile-avatar-big" id="modal-avatar">?</div>
+        <div class="profile-info">
+          <h3 id="modal-name">--</h3>
+          <p id="modal-email">--</p>
+        </div>
+
+        <hr class="divider" />
+
+        <button class="btn-secondary" onclick="toggleEdit('name')">
+          ✏️ &nbsp;Change Display Name
+        </button>
+        <div class="edit-section" id="edit-name-section">
+          <div class="field">
+            <label>NEW NAME</label>
+            <input
+              type="text"
+              id="edit-name-input"
+              placeholder="Enter new name"
+            />
+          </div>
+          <button
+            class="btn-primary"
+            style="margin-bottom: 12px"
+            onclick="saveName()"
+          >
+            Save Name
+          </button>
+          <div class="toast" id="name-toast"></div>
+        </div>
+
+        <button class="btn-secondary" onclick="toggleEdit('pass')">
+          🔒 &nbsp;Change Password
+        </button>
+        <div class="edit-section" id="edit-pass-section">
+          <div class="field">
+            <label>NEW PASSWORD</label>
+            <input
+              type="password"
+              id="edit-pass-input"
+              placeholder="Min. 8 characters"
+            />
+          </div>
+          <button
+            class="btn-primary"
+            style="margin-bottom: 12px"
+            onclick="savePass()"
+          >
+            Update Password
+          </button>
+          <div class="toast" id="pass-toast"></div>
+        </div>
+
+        <hr class="divider" />
+
+        <div style="text-align: center; font-size: 12px; color: var(--muted)">
+          Member since <span id="modal-joined">--</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ───── SUPABASE + APP LOGIC ───── -->
+    <script type="module">
+      import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+
+      // ─── ⚠️  REPLACE THESE WITH YOUR SUPABASE PROJECT CREDENTIALS ───
+      const SUPABASE_URL = "https://dsjplvdxnhopalzfcmxy.supabase.co";
+      const SUPABASE_ANON = "sb_publishable_D6EHMstxMYtt_IU19S47Ig_SXK5jEZX";
+      // ──────────────────────────────────────────────────────────────────
+
+      const sb = createClient(SUPABASE_URL, SUPABASE_ANON);
+
+      let currentUser = null;
+      let loginCount = 0;
+
+      // ─── HELPERS ───
+      const $ = (id) => document.getElementById(id);
+      const show = (el, d = "flex") => {
+        el.style.display = d;
+      };
+      const hide = (el) => {
+        el.style.display = "none";
+      };
+      const loader = $("loader");
+      const authPage = $("auth-page");
+      const dashPage = $("dash-page");
+
+      function getInitials(name) {
+        if (!name) return "?";
+        return name
+          .split(" ")
+          .map((w) => w[0])
+          .join("")
+          .toUpperCase()
+          .slice(0, 2);
+      }
+
+      function formatDate(d) {
+        return d.toLocaleDateString("en-US", {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        });
+      }
+
+      function tick() {
+        const now = new Date();
+        $("nav-clock").textContent = now.toLocaleTimeString("en-US", {
+          hour12: false,
+        });
+        $("welcome-date").textContent = formatDate(now);
+      }
+
+      // ─── AUTH STATE ───
+      async function init() {
+        const {
+          data: { session },
+        } = await sb.auth.getSession();
+        if (session) {
+          currentUser = session.user;
+          await loadDashboard();
+        } else {
+          hide(loader);
+          show(authPage, "flex");
+        }
+        sb.auth.onAuthStateChange(async (_event, session) => {
+          if (session) {
+            currentUser = session.user;
+            await loadDashboard();
+          }
+        });
+      }
+
+      // ─── REGISTER ───
+      window.register = async function () {
+        const username = $("reg-username").value.trim();
+        const email = $("reg-email").value.trim();
+        const password = $("reg-password").value;
+        const btn = $("register-btn");
+        const toast = $("register-toast");
+
+        toast.className = "toast";
+        if (!username || !email || !password)
+          return showToast(toast, "error", "Please fill in all fields.");
+        if (password.length < 8)
+          return showToast(
+            toast,
+            "error",
+            "Password must be at least 8 characters.",
+          );
+
+        btn.disabled = true;
+        btn.textContent = "Creating account…";
+
+        const { data, error } = await sb.auth.signUp({
+          email,
+          password,
+          options: {
+            data: {
+              username,
+              display_name: username,
+              login_count: 1,
+              joined: new Date().toISOString(),
+            },
+            emailRedirectTo: window.location.href,
+          },
+        });
+
+        btn.disabled = false;
+        btn.textContent = "Create Account";
+
+        if (error) return showToast(toast, "error", error.message);
+
+        // Send greeting email via Supabase edge function (if set up)
+        // Otherwise just confirm in UI
+        showToast(
+          toast,
+          "success",
+          "🎉 Account created! Check your email to confirm, then sign in.",
+        );
+      };
+
+      // ─── LOGIN ───
+      window.login = async function () {
+        const email = $("login-email").value.trim();
+        const password = $("login-password").value;
+        const btn = $("login-btn");
+        const toast = $("login-toast");
+
+        toast.className = "toast";
+        if (!email || !password)
+          return showToast(
+            toast,
+            "error",
+            "Please enter your email and password.",
+          );
+
+        btn.disabled = true;
+        btn.textContent = "Signing in…";
+
+        const { data, error } = await sb.auth.signInWithPassword({
+          email,
+          password,
+        });
+
+        btn.disabled = false;
+        btn.textContent = "Sign In";
+
+        if (error) return showToast(toast, "error", error.message);
+
+        // Increment login count
+        const meta = data.user.user_metadata;
+        const newCount = (meta.login_count || 0) + 1;
+        await sb.auth.updateUser({ data: { login_count: newCount } });
+      };
+
+      // ─── LOGOUT ───
+      window.logout = async function () {
+        await sb.auth.signOut();
+        currentUser = null;
+        hide(dashPage);
+        show(authPage, "flex");
+      };
+
+      // ─── DASHBOARD ───
+      async function loadDashboard() {
+        const meta = currentUser.user_metadata || {};
+        const name =
+          meta.display_name || meta.username || currentUser.email.split("@")[0];
+        const email = currentUser.email;
+        const joined = meta.joined
+          ? new Date(meta.joined)
+          : new Date(currentUser.created_at);
+        loginCount = meta.login_count || 1;
+
+        // Populate UI
+        $("nav-name").textContent = name;
+        $("nav-avatar").textContent = getInitials(name);
+        $("welcome-name").textContent = name;
+        $("modal-name").textContent = name;
+        $("modal-email").textContent = email;
+        $("modal-avatar").textContent = getInitials(name);
+        $("modal-joined").textContent = joined.toLocaleDateString("en-US", {
+          month: "long",
+          year: "numeric",
+        });
+        $("stat-logins").textContent = loginCount;
+
+        // Days active
+        const days = Math.max(
+          1,
+          Math.ceil((Date.now() - joined.getTime()) / 86400000),
+        );
+        $("stat-days").textContent = days;
+
+        // Activity feed
+        buildActivity(name, joined);
+
+        // Clock
+        tick();
+        setInterval(tick, 1000);
+
+        // Show dashboard
+        hide(loader);
+        hide(authPage);
+        show(dashPage, "flex");
+      }
+
+      function buildActivity(name, joined) {
+        const feed = $("activity-feed");
+        const items = [
+          {
+            text: `<strong>${name}</strong> signed in successfully`,
+            time: "Just now",
+          },
+          {
+            text: `Account created on <strong>${joined.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</strong>`,
+            time: "Account history",
+          },
+          {
+            text: `Email verified for <strong>${currentUser.email}</strong>`,
+            time: "Account setup",
+          },
+          {
+            text: `Profile initialized with display name <strong>${name}</strong>`,
+            time: "On registration",
+          },
+        ];
+        if (loginCount > 1) {
+          items.splice(1, 0, {
+            text: `<strong>Session #${loginCount}</strong> — welcome back!`,
+            time: "This session",
+          });
+        }
+        feed.innerHTML = items
+          .map(
+            (i) => `
+    <div class="act-item">
+      <div class="act-dot"></div>
+      <div>
+        <div class="act-text">${i.text}</div>
+        <div class="act-time">${i.time}</div>
+      </div>
+    </div>`,
+          )
+          .join("");
+      }
+
+      // ─── PROFILE MODAL ───
+      window.openProfile = function () {
+        $("profile-modal").classList.add("open");
+      };
+      window.closeProfile = function () {
+        $("profile-modal").classList.remove("open");
+        $("edit-name-section").classList.remove("open");
+        $("edit-pass-section").classList.remove("open");
+      };
+      window.toggleEdit = function (type) {
+        if (type === "name") {
+          $("edit-name-section").classList.toggle("open");
+          $("edit-pass-section").classList.remove("open");
+        } else {
+          $("edit-pass-section").classList.toggle("open");
+          $("edit-name-section").classList.remove("open");
+        }
+      };
+
+      // ─── SAVE NAME ───
+      window.saveName = async function () {
+        const newName = $("edit-name-input").value.trim();
+        const toast = $("name-toast");
+        if (!newName) return showToast(toast, "error", "Name cannot be empty.");
+
+        const { error } = await sb.auth.updateUser({
+          data: { display_name: newName },
+        });
+        if (error) return showToast(toast, "error", error.message);
+
+        showToast(toast, "success", "Name updated!");
+        $("nav-name").textContent = newName;
+        $("nav-avatar").textContent = getInitials(newName);
+        $("welcome-name").textContent = newName;
+        $("modal-name").textContent = newName;
+        $("modal-avatar").textContent = getInitials(newName);
+        $("edit-name-input").value = "";
+      };
+
+      // ─── SAVE PASSWORD ───
+      window.savePass = async function () {
+        const newPass = $("edit-pass-input").value;
+        const toast = $("pass-toast");
+        if (newPass.length < 8)
+          return showToast(
+            toast,
+            "error",
+            "Password must be at least 8 characters.",
+          );
+
+        const { error } = await sb.auth.updateUser({ password: newPass });
+        if (error) return showToast(toast, "error", error.message);
+
+        showToast(toast, "success", "Password updated successfully!");
+        $("edit-pass-input").value = "";
+      };
+
+      // ─── TOAST ───
+      function showToast(el, type, msg) {
+        el.textContent = msg;
+        el.className = `toast ${type}`;
+      }
+
+      // ─── TAB SWITCH ───
+      window.switchTab = function (tab) {
+        if (tab === "login") {
+          show($("form-login"), "block");
+          hide($("form-register"));
+          $("tab-login").classList.add("active");
+          $("tab-register").classList.remove("active");
+        } else {
+          hide($("form-login"));
+          show($("form-register"), "block");
+          $("tab-register").classList.add("active");
+          $("tab-login").classList.remove("active");
+        }
+      };
+
+      // ─── COMING SOON ───
+      window.showComingSoon = function (el) {
+        const sub = el.querySelector(".link-sub");
+        const orig = sub.textContent;
+        sub.textContent = "✨ Coming soon!";
+        setTimeout(() => (sub.textContent = orig), 1800);
+      };
+
+      // ─── CLOSE MODAL ON OVERLAY CLICK ───
+      $("profile-modal").addEventListener("click", (e) => {
+        if (e.target === $("profile-modal")) closeProfile();
+      });
+
+      // ─── START ───
+      init();
+    </script>
+  </body>
+</html>
