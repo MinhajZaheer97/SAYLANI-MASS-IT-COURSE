@@ -1,0 +1,21 @@
+{
+  "name": "signup-page",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "vite": "^8.1.4"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.110.6"
+  }
+}
