@@ -1,9 +1,13 @@
 import { supabase } from './script.js'
 
+
 const gmailInput = document.getElementById('gmail')
 const usernameInput = document.getElementById('username')
 const passwordInput = document.getElementById('password')
 const signupBtn = document.getElementById('btn')
+
+const {user , error} = await supabase.from('users_data').select("*").eq('gmail',gmailInput?.value).single()
+
 
 // console.log('Supabase client ready:', !!supabase)
 
