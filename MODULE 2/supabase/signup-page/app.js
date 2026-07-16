@@ -1,39 +1,61 @@
-import { supabase } from './script.js'
+import { supabase } from "./script.js";
 
+const gmailInput = document.getElementById("gmail");
+const usernameInput = document.getElementById("username");
+const passwordInput = document.getElementById("password");
+const signupBtn = document.getElementById("btn");
 
-const gmailInput = document.getElementById('gmail')
-const usernameInput = document.getElementById('username')
-const passwordInput = document.getElementById('password')
-const signupBtn = document.getElementById('btn')
+let userdata
 
-const {user , error} = await supabase.from('users_data').select("*").eq('gmail',gmailInput?.value).single()
-
-
-// console.log('Supabase client ready:', !!supabase)
-
-signupBtn?.addEventListener('click', async() => {
+signupBtn?.addEventListener("click", async () => {
   console.log({
     gmail: gmailInput?.value,
     name: usernameInput?.value,
     password: passwordInput?.value,
-  })
+  });
 
-    await supabase.from('users_data').insert([
-        {
-            name: usernameInput?.value ,
-            gmail: gmailInput?.value,   
-            password: passwordInput?.value,
-        }
-    ]).select()
+  
+  const { data, error } = await supabase.auth.signUp({
+      email: gmailInput?.value,
+      password: passwordInput?.value,
+    options: {
+        data: {
+            username: usernameInput?.value,
+        },
+    },
+});
 
-    const { data, error } = await supabase.auth.signUp({
-        email: gmailInput?.value,
-        password: passwordInput?.value,
-        options: {
-            data: {
-                username: usernameInput?.value
-            }
-        }
-    })
+const { error: insertError } = await supabase.from("users_data").insert([
+    {
+        name: usernameInput.value,
+        gmail: gmailInput.value,
+    },
+]);
 
-})
+if (insertError) {
+    alert(insertError.message);
+}
+if (error) {
+    alert(error.message);
+    }
+     else {
+        window.location.replace("./page.html");
+}
+userdata = {
+    gmail: gmailInput?.value,
+    name: usernameInput?.value,
+    password: passwordInput?.value,
+    };
+
+    localStorage.setItem("userData", JSON.stringify(userdata));
+  
+});
+
+
+  let userexist = JSON.parse(localStorage.getItem("userData"));
+
+  if (userexist) {
+    window.location.replace("./page.html");
+  }
+
+

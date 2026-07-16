@@ -3,9 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Profile</title>
+    <script type="module" src="./page.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #0f172a, #312e81, #7c3aed);
+            color: #f3f4f6;
+        }
+
+        .profile-card {
+            width: 100%;
+            max-width: 440px;
+            background: rgba(255, 255, 255, 0.95);
+            color: #111827;
+            padding: 28px;
+            border-radius: 24px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(12px);
+        }
+
+        .avatar {
+            width: 62px;
+            height: 62px;
+            border-radius: 50%;
+            margin: 0 auto 14px;
+            display: grid;
+            place-items: center;
+            font-weight: 700;
+            font-size: 24px;
+            color: white;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+        }
+
+        h2 {
+            margin: 0 0 8px;
+            text-align: center;
+            color: #111827;
+        }
+
+        .userinfo {
+            margin: 0;
+            line-height: 1.8;
+            font-size: 15px;
+            color: #374151;
+            word-break: break-word;
+        }
+    </style>
 </head>
 <body>
-    hello
+    <div class="profile-card">
+        <div class="avatar">U</div>
+        <h2>Your Profile</h2>
+        <p class="userinfo"></p>
+    </div>
 </body>
 </html>
