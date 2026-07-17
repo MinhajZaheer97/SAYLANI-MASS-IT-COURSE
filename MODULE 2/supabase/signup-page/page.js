@@ -1,10 +1,11 @@
 import {supabase} from "./script.js"
+// localStorage.clear();
 
 const userinfo = document.querySelector(".userinfo")
 
 const user = JSON.parse(localStorage.getItem("userData"))
 
-console.log(user.name);
+console.log(user.id);
 
 const {data,error} = await supabase
     .from("users_data")
@@ -17,8 +18,8 @@ const {data,error} = await supabase
         console.log(error.message);
         
     }else{
-        console.log(data);
+        console.log(data.id);
 
     }
 
-userinfo.innerHTML = `name = ${data.name} <br> gmail = ${data.gmail}`
+userinfo.innerHTML = `name = ${data.name} <br> gmail = ${data.gmail} <br> id = ${data.id}`

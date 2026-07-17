@@ -29,6 +29,7 @@ const { error: insertError } = await supabase.from("users_data").insert([
     {
         name: usernameInput.value,
         gmail: gmailInput.value,
+        password : passwordInput.value,
     },
 ]);
 
