@@ -1,0 +1,6 @@
+react is a js library for building user interfaces(ui) in web applications
+
+difference between library and framework
+
+The fundamental difference between a library and a framework lies in a technical concept called Inversion of Control (IoC). When you use a library, your code controls the application flow and calls the library's functions. When you use a framework, the framework controls the architecture and flow, calling your code at designated plug-in points.
+
