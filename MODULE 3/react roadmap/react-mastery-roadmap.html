@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>React Mastery Roadmap — Beginner to Advanced</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #181b23;
+      --surface-2: #1f232e;
+      --border: #2a2f3d;
+      --text: #e6e8ee;
+      --text-muted: #9aa1b2;
+      --accent: #61dafb;
+      --accent-dark: #0b3d4a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+    main { max-width: 860px; margin: 0 auto; }
+    header.page-header {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--surface);
+      margin-bottom: 2.5rem;
+    }
+    h1 { font-size: 2rem; line-height: 1.25; margin-bottom: 0.75rem; }
+    .meta { color: var(--text-muted); font-size: 0.95rem; }
+    h2 {
+      font-size: 1.4rem;
+      color: var(--accent);
+      margin: 3rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--border);
+    }
+    h3 {
+      font-size: 1.1rem;
+      margin: 2rem 0 0.75rem;
+    }
+    h3.project {
+      background: var(--accent-dark);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.6rem 0.9rem;
+    }
+    section.week {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    section.week h3 { margin-top: 0; }
+    ul { list-style: none; margin: 0.75rem 0; }
+    ul li {
+      padding: 0.3rem 0 0.3rem 1.1rem;
+      position: relative;
+    }
+    ul li::before {
+      content: "▸";
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+    }
+    .facts {
+      margin-top: 1rem;
+      padding-top: 0.75rem;
+      border-top: 1px dashed var(--border);
+      font-size: 0.95rem;
+    }
+    .facts p { margin: 0.35rem 0; }
+    .facts strong { color: var(--accent); font-weight: 600; }
+    .checklist { color: var(--text-muted); }
+    section.project-card {
+      background: var(--surface-2);
+      border: 1px solid var(--accent-dark);
+      border-left: 4px solid var(--accent);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+    section.project-card h3 { margin-top: 0; }
+    code {
+      font-family: "Courier New", monospace;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.1rem 0.35rem;
+      font-size: 0.9em;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 2rem;
+      font-size: 0.92rem;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.6rem 0.75rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: var(--surface-2); color: var(--accent); }
+    td { background: var(--surface); }
+    footer {
+      margin-top: 3rem;
+      padding: 1.5rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border);
+    }
+    @media (max-width: 640px) {
+      h1 { font-size: 1.5rem; }
+      section.week, section.project-card { padding: 1rem; }
+      table { display: block; overflow-x: auto; }
+    }
+    @media print {
+      :root {
+        --bg: #ffffff; --surface: #ffffff; --surface-2: #f4f4f4;
+        --border: #cccccc; --text: #111111; --text-muted: #555555;
+        --accent: #0b6e8f; --accent-dark: #e3f2f8;
+      }
+      body { padding: 0; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header class="page-header">
+      <h1>React Mastery Roadmap — Beginner to Advanced (React Only)</h1>
+      <p class="meta"><strong>Duration:</strong> 24 weeks (~6 months) &middot; <strong>Schedule:</strong> Mon&ndash;Fri, 2&ndash;3 hrs/day &middot; <strong>Fridays:</strong> Revision only</p>
+    </header>
+
+    <h2>Phase 1 — React Fundamentals (Weeks 1–3)</h2>
+
+    <section class="week">
+      <h3>Week 1 — Getting Started with React</h3>
+      <ul>
+        <li><strong>Day 1:</strong> Why React, SPA vs MPA</li>
+        <li><strong>Day 2:</strong> Declarative vs Imperative Programming, React Architecture</li>
+        <li><strong>Day 3:</strong> Installing React with Vite, Vite Project Structure</li>
+        <li><strong>Day 4:</strong> JSX, React Elements</li>
+        <li><strong>Day 5 (Fri):</strong> Revision &amp; Practice — Week 1 topics</li>
+      </ul>
+      <div class="facts">
+        <p><strong>Weekly Goal:</strong> Understand what React is and set up a working environment.</p>
+        <p><strong>Learning Outcomes:</strong> Explain React&apos;s purpose; create a Vite project; write valid JSX.</p>
+        <p><strong>Friday Revision Plan:</strong> Rebuild a Vite project from scratch; JSX drills.</p>
+        <p class="checklist"><strong>Self Assessment:</strong> ☐ Can explain SPA vs MPA &nbsp;☐ Can set up Vite &nbsp;☐ Can write JSX without errors</p>
+      </div>
+    </section>
+
+    <section class="week">
+      <h3>Week 2 — Components &amp; Props</h3>
+      <ul>
+        <li><strong>Day 6:</strong> Components, Functional Components</li>
+        <li><strong>Day 7:</strong> Component Composition</li>
+        <li><strong>Day 8:</strong> Props</li>
+        <li><strong>Day 9:</strong> Children Props</li>
+        <li><strong>Day 10 (Fri):</strong> Revision &amp; Practice — Week 2 topics</li>
+      </ul>
+      <div class="facts">
+        <p><strong>Weekly Goal:</strong> Build and compose reusable components.</p>
+        <p><strong>Learning Outcomes:</strong> Break UI into components; pass and use props correctly.</p>
+        <p><strong>Friday Revision Plan:</strong> Recreate a static page using 6+ composed components.</p>
+        <p class="checklist"><strong>Self Assessment:</strong> ☐ Can compose components &nbsp;☐ Can pass props &nbsp;☐ Understands <code>children</code></p>
+      </div>
+    </section>
+
+    <section class="week">
+      <h3>Week 3 — Rendering Logic</h3>
+      <ul>
+        <li><strong>Day 11:</strong> Conditional Rendering</li>
+        <li><strong>Day 12:</strong> Lists &amp; Keys</li>
+        <li><strong>Day 13:</strong> Combining props + conditionals + lists (practice topics only)</li>
+        <li><strong>Day 14:</strong> Mini Project 1 build day</li>
+        <li><strong>Day 15 (Fri):</strong> Revision &amp; Practice — Weeks 1–3 topics</li>
+      </ul>
+      <div class="facts">
+        <p><strong>Weekly Goal:</strong> Render dynamic UI from data.</p>
+        <p><strong>Learning Outcomes:</strong> Conditionally render; map data to lists with stable keys.</p>
+        <p><strong>Friday Revision Plan:</strong> Full Part 1 recap; flashcards on JSX/props/keys.</p>
+        <p class="checklist"><strong>Self Assessment:</strong> ☐ Can render lists from arrays &nbsp;☐ Understands why keys matter &nbsp;☐ Can conditionally render 3 different ways</p>
+      </div>
+    </section>
+
+    <section class="project-card">
+      <h3>🛠 Mini Project 1 — Profile Card Gallery (Weekend, Weeks 2–3)</h3>
+      <ul>
+        <li><strong>Objective:</strong> Static-data React app rendering a filterable gallery of profile cards.</li>
+        <li><strong>Features:</strong> Card list from array data, conditional badges, empty state, reusable Card/Badge/Header components.</li>
+        <li><strong>Folder Structure:</strong> <code>src/components/</code>, <code>src/data/</code>, <code>src/assets/</code>, <code>App.jsx</code>, <code>main.jsx</code></li>
+        <li><strong>Skills Practiced:</strong> Components, composition, props, children, lists &amp; keys, conditional rendering.</li>
+        <li><strong>Best Practices:</strong> One component per file, PascalCase names, no repeated markup.</li>
+        <li><strong>GitHub Milestone:</strong> <code>v1.0-profile-gallery</code> — repo with README + screenshots.</li>
+      </ul>
+    </section>
+
+    <h2>Phase 2 — React Core Concepts (Weeks 4–5)</h2>
+
+    <section class="week">
+      <h3>Week 4 — How React Works</h3>
+      <ul>
+        <li><strong>Day 16:</strong> Virtual DOM, Real DOM</li>
+        <li><strong>Day 17:</strong> Rendering Process</li>
+        <li><strong>Day 18:</strong> Reconciliation, Diffing Algorithm</li>
+        <li><strong>Day 19:</strong> Component Lifecycle (conceptual)</li>
+        <li><strong>Day 20 (Fri):</strong> Revision &amp; Practice — Week 4 topics</li>
+      </ul>
+      <div class="facts">
+        <p><strong>Weekly Goal:</strong> Understand React&apos;s internal rendering model.</p>
+        <p><strong>Learning Outcomes:</strong> Explain VDOM, reconciliation, and when React re-renders.</p>
+        <p><strong>Friday Revision Plan:</strong> Whiteboard the render → reconcile → commit flow from memory.</p>
+        <p class="checklist"><strong>Self Assessment:</strong> ☐ Can explain VDOM vs Real DOM &nbsp;☐ Can describe diffing &nbsp;☐ Can explain lifecycle phases</p>
+      </div>
+    </section>
+
+    <section class="week">
+      <h3>Week 5 — Data Flow</h3>
+      <ul>
+        <li><strong>Day 21:</strong> State vs Props, One-way Data Flow</li>
+        <li><strong>Day 22:</strong> Controlled vs Uncontrolled Components</li>
+        <li><strong>Day 23:</strong> Lifting State Up</li>
+        <li><strong>Day 24:</strong> Data flow practice day (topics review via small builds)</li>
+        <li><strong>Day 25 (Fri):</strong> Revision &amp; Practice — Weeks 4–5 topics</li>
+      </ul>
+      <div class="facts">
+        <p><strong>Weekly Goal:</strong> Master React&apos;s data flow model.</p>
+        <p><strong>Learning Outcomes:</strong> Decide where state lives; build controlled inputs; lift state correctly.</p>
+        <p><strong>Friday Revision Plan:</strong> Rebuild a two-component form sharing lifted state.</p>
+        <p class="checklist"><strong>Self Assessment:</strong> ☐ Can explain state vs props &nbsp;☐ Can build controlled forms &nbsp;☐ Can lift state without prop confusion</p>
+      </div>
+    </section>
+
+    <h2>Phase 3 — Hooks (Weeks 6–9)</h2>
+
+    <section class="week">
+      <h3>Week 6 — useState</h3>
+      <ul>
+        <li><strong>Day 26:</strong> useState — basics</li>
+        <li><strong>Day 27:</strong> useState — objects &amp; arrays in state</li>
+        <li><strong>Day 28:</strong> useState — updater functions, batching</li>
+        <li><strong>Day 29:</strong> useState — common mistakes &amp; real-world patterns</li>
+        <li><strong>Day 30 (Fri):</strong> Revision &amp; Practice — Week 6 topics</li>
+      </ul>
+      <div class="facts">
+        <p><strong>Weekly Goal:</strong> Full command of component state.</p>
+        <p><strong>Learning Outcomes:</strong> Update primitive/object/array state immutably; avoid stale state bugs.</p>
+        <p><strong>Friday Revision Plan:</strong> State drills: counter, toggle, form, list CRUD.</p>
+        <p class="checklist"><strong>Self Assessment:</strong> ☐ Immutable updates &nbsp;☐ Updater function usage &nbsp;☐ Knows when NOT to use state</p>
+      </div>
+    </section>
+
+    <section class="week">
+      <h3>Week 7 — useEffect &amp; useRef</h3>
+      <ul>
+        <li><strong>Day 31:</strong> useEffect — basics &amp; dependency array</li>
+        <li><strong>Day 32:</strong> useEffect — cleanup functions</li>
+        <li><strong>Day 33:</strong> useEffect — data fetching, common mistakes</li>
+        <li><strong>Day 34:</strong> useRef — DOM refs &amp; mutable values</li>
+        <li><strong>Day 35 (Fri):</strong> Revision &amp; Practice — Week 7 topics</li>
+      </ul>
+      <div class="facts">
+        <p><strong>Weekly Goal:</strong> Handle side effects and refs correctly.</p>
+        <p><strong>Learning Outcomes:</strong> Write effects with correct deps; clean up; fetch data safely.</p>
+        <p><strong>Friday Revision Plan:</strong> Rebuild a fetch-on-mount component with cleanup; ref drills.</p>
+        <p class="checklist"><strong>Self Assessment:</strong> ☐ Correct dependency arrays &nbsp;☐ Cleanup mastery &nbsp;☐ Knows ref vs state</p>
+      </div>
+    </section>
+
+    <section class="week">
+      <h3>Week 8 — Memoization &amp; Reducer Hooks</h3>
+      <ul>
+        <li><strong>Day 36:</strong> useMemo</li>
+        <li><strong>Day 37:</strong> useCallback</li>
+        <li><strong>Day 38:</strong> useReducer — basics</li>
+        <li><strong>Day 39:</strong> useReducer — complex state patterns</li>
+        <li><strong>Day 40 (Fri):</strong> Revision &amp; Practice — Week 8 topics</li>
+      </ul>
+      <div class="facts">
+        <p><strong>Weekly Goal:</strong> Optimize computations and manage complex state.</p>
+        <p><strong>Learning Outcomes:</strong> Know when memoization helps (and when it doesn&apos;t); write reducers.</p>
+        <p><strong>Friday Revision Plan:</strong> Convert a multi-useState component to useReducer.</p>
+        <p class="checklist"><strong>Self Assessment:</strong> ☐ useMemo vs useCallback &nbsp;☐ Can write a reducer &nbsp;☐ Knows premature-optimization traps</p>
+      </div>
+    </section>
+
+    <section class="week">
+      <h3>Week 9 — useContext + Mini Project 2</h3>
+      <ul>
+        <li><strong>Day 41:</strong> Context API — createContext, Provider</li>
+        <li><strong>Day 42:</strong> useContext — consuming context, when NOT to use it</li>
+        <li><strong>Day 43:</strong> Mini Project 2 build day</li>
+        <li><strong>Day 44:</strong> Mini Project 2 build day</li>
+        <li><strong>Day 45 (Fri):</strong> Revision &amp; Practice — Weeks 6–9 (all hooks)</li>
+      </ul>
+      <div class="facts">
+        <p><strong>Weekly Goal:</strong> Share state without prop drilling; consolidate all core hooks.</p>
+        <p><strong>Learning Outcomes:</strong> Build a themed/context-driven app; explain every core hook&apos;s purpose.</p>
+        <p><strong>Friday Revision Plan:</strong> Hook-by-hook flashcard review; identify the right hook for 10 scenarios.</p>
+        <p class="checklist"><strong>Self Assessment:</strong> ☐ Can set up Context &nbsp;☐ Knows context re-render costs &nbsp;☐ Can justify each hook choice</p>
+      </div>
+    </section>
+
+    <section class="project-card">
+      <h3>🛠 Mini Project 2 — Task Manager (Weeks 8–9)</h3>
+      <ul>
+        <li><strong>Objective:</strong> Full CRUD task app with filtering, persistence, and theme switching.</li>
+        <li><strong>Features:</strong> Add/edit/delete/complete tasks, filter tabs, localStorage persistence, dark/light theme via Context, useReducer for task state.</li>
+        <li><strong>Folder Structure:</strong> <code>src/components/</code>, <code>src/context/</code>, <code>src/reducers/</code>, <code>src/utils/</code>, <code>src/data/</code></li>
+        <li><strong>Skills Practiced:</strong> useState, useEffect, useReducer, useContext, useRef, controlled forms.</li>
+        <li><strong>Best Practices:</strong> Reducer purity, immutable updates, small focused components.</li>
+        <li><strong>GitHub Milestone:</strong> <code>v1.0-task-manager</code> — README with feature list + GIF demo.</li>
+      </ul>
+    </section>
+
+    <h2>Phase 4 — Advanced React (Weeks 10–14)</h2>
+
+    <section class="week">
+      <h3>Week 10 — Custom Hooks &amp; Rules</h3>
+      <ul>
+        <li><strong>Day 46:</strong> Rules of Hooks</li>
+        <li><strong>Day 47:</strong> Custom Hooks — basics</li>
+        <li><strong>Day 48:</strong> Custom Hooks — useFetch, useLocalStorage patterns</li>
+        <li><strong>Day 49:</strong> Custom Hooks — extracting logic from existing components</li>
+        <li><strong>Day 50 (Fri):</strong> Revision &amp; Practice — Week 10 topics</li>
+      </ul>
+      <div class="facts">
+        <p><strong>Weekly Goal:</strong> Extract and reuse logic with custom hooks.</p>
+        <p><strong>Learning Outcomes:</strong> Write 3+ custom hooks; explain why rules of hooks exist.</p>
+        <p><strong>Friday Revision Plan:</strong> Refactor Mini Project 2 logic into custom hooks.</p>
+        <p class="checklist"><strong>Self Assessment:</strong> ☐ Knows all rules of hooks &nbsp;☐ Can extract a custom hook &nbsp;☐ Can name hooks conventionally</p>
+      </div>
+    </section>
+
+    <section class="week">
+      <h3>Week 11 — Scalable State &amp; Memo</h3>
+      <ul>
+        <li><strong>Day 51:</strong> Combining Context + useReducer (scalable, library-free state management)</li>
+        <li><strong>Day 52:</strong> Context + useReducer — provider patterns &amp; splitting contexts</li>
+        <li><strong>Day 53:</strong> React.memo</li>
+        <li><strong>Day 54:</strong> Fragments, Strict Mode</li>
+        <li><strong>Day 55 (Fri):</strong> Revision &amp; Practice — Week 11 topics</li>
+      </ul>
+      <div class="facts">
+        <p><strong>Weekly Goal:</strong> Build a Redux-like store using only React.</p>
+        <p><strong>Learning Outcomes:</strong> Architect global state with Context + useReducer; use memo correctly.</p>
+        <p><strong>Friday Revision Plan:</strong> Build a mini global store from scratch, no notes.</p>
+        <p class="checklist"><strong>Self Assessment:</strong> ☐ Can wire Context + useReducer &nbsp;☐ Knows StrictMode double-render behavior &nbsp;☐ Knows when React.memo helps</p>
+      </div>
+    </section>
+
+    <section class="week">
+      <h3>Week 12 — Code Splitting &amp; Boundaries</h3>
+      <ul>
+        <li><strong>Day 56:</strong> Lazy Loading, Code Splitting</li>
+        <li><strong>Day 57:</strong> Suspense</li>
+        <li><strong>Day 58:</strong> Error Boundaries</li>
+        <li><strong>Day 59:</strong> Portals</li>
+        <li><strong>Day 60 (Fri):</strong> Revision &amp; Practice — Week 12 topics</li>
+      </ul>
+      <div class="facts">
+        <p><strong>Weekly Goal:</strong> Handle loading, errors, and rendering escape hatches.</p>
+        <p><strong>Learning Outcomes:</strong> Lazy-load routes/components; catch render errors; build a modal with portals.</p>
+        <p><strong>Friday Revision Plan:</strong> Build a lazy-loaded section with Suspense fallback + error boundary + portal modal.</p>
+        <p class="checklist"><strong>Self Assessment:</strong> ☐ Can code-split &nbsp;☐ Can write an error boundary &nbsp;☐ Can build a portal modal</p>
+      </div>
+    </section>
+
+    <section class="week">
+      <h3>Week 13 — Refs &amp; Legacy Patterns</h3>
+      <ul>
+        <li><strong>Day 61:</strong> Refs &amp; forwardRef</li>
+        <li><strong>Day 62:</strong> useImperativeHandle (concept)</li>
+        <li><strong>Day 63:</strong> Render Props (concept)</li>
+        <li><strong>Day 64:</strong> Higher Order Components (concept)</li>
+        <li><strong>Day 65 (Fri):</strong> Revision &amp; Practice — Week 13 topics</li>
+      </ul>
+      <div class="facts">
+        <p><strong>Weekly Goal:</strong> Understand ref forwarding and recognize legacy patterns.</p>
+        <p><strong>Learning Outcomes:</strong> Forward refs; identify HOC/render-prop code in the wild and its modern hook equivalent.</p>
+        <p><strong>Friday Revision Plan:</strong> Convert an HOC and a render-prop example to custom hooks.</p>
+        <p class="checklist"><strong>Self Assessment:</strong> ☐ Can forward refs &nbsp;☐ Can read HOC code &nbsp;☐ Knows modern replacements</p>
+      </div>
+    </section>
+
+    <section class="week">
+      <h3>Week 14 — React 19 Specifics + Mini Project 3</h3>
+      <ul>
+        <li><strong>Day 66:</strong> React 19 — Actions, useActionState</li>
+        <li><strong>Day 67:</strong> React 19 — useOptimistic, the use() hook</li>
+        <li><strong>Day 68:</strong> React 19 — form-related hook changes; modern vs legacy patterns</li>
+        <li><strong>Day 69:</strong> Mini Project 3 build day</li>
+        <li><strong>Day 70 (Fri):</strong> Revision &amp; Practice — Weeks 10–14 (all advanced topics)</li>
+      </ul>
+      <div class="facts">
+        <p><strong>Weekly Goal:</strong> Know what&apos;s new in React 19 vs legacy manual patterns.</p>
+        <p><strong>Learning Outcomes:</strong> Use Actions/useActionState/useOptimistic; identify legacy loading/error boilerplate they replace.</p>
+        <p><strong>Friday Revision Plan:</strong> Side-by-side rebuild: legacy form vs React 19 Actions form.</p>
+        <p class="checklist"><strong>Self Assessment:</strong> ☐ Can use useActionState &nbsp;☐ Can use useOptimistic &nbsp;☐ Can classify modern vs legacy patterns</p>
+      </div>
+    </section>
+
+    <section class="project-card">
+      <h3>🛠 Mini Project 3 — Movie Explorer (Weeks 13–14)</h3>
+      <ul>
+        <li><strong>Objective:</strong> API-driven browse/search app with real async UX.</li>
+        <li><strong>Features:</strong> Search with debounce (custom hook), fetch from a free public API, loading/error/empty states, favorites via Context + useReducer, portal modal for details, lazy-loaded detail view, error boundary, React 19 form Action for search.</li>
+        <li><strong>Folder Structure:</strong> <code>src/components/</code>, <code>src/hooks/</code>, <code>src/context/</code>, <code>src/utils/</code>, <code>src/constants/</code></li>
+        <li><strong>Skills Practiced:</strong> Custom hooks, Context + useReducer, Suspense/lazy, portals, error boundaries, React 19 features.</li>
+        <li><strong>Best Practices:</strong> Abort stale requests, colocate state, meaningful loading/error UX.</li>
+        <li><strong>GitHub Milestone:</strong> <code>v1.0-movie-explorer</code> — README, live screenshots, documented custom hooks.</li>
+      </ul>
+    </section>
+
+    <h2>Phase 5 — Performance (Weeks 15–16)</h2>
+
+    <section class="week">
+      <h3>Week 15 — Re-renders &amp; Memoization</h3>
+      <ul>
+        <li><strong>Day 71:</strong> Why Components Re-render</li>
+        <li><strong>Day 72:</strong> Preventing Unnecessary Re-renders</li>
+        <li><strong>Day 73:</strong> Memoization strategy (React.memo + useMemo + useCallback together)</li>
+        <li><strong>Day 74:</strong> Composition-based optimization (children pattern, state colocation)</li>
+        <li><strong>Day 75 (Fri):</strong> Revision &amp; Practice — Week 15 topics</li>
+      </ul>
+      <div class="facts">
+        <p><strong>Weekly Goal:</strong> Diagnose and eliminate wasted renders.</p>
+        <p><strong>Learning Outcomes:</strong> Trace re-render causes; fix them via composition first, memoization second.</p>
+        <p><strong>Friday Revision Plan:</strong> Take a deliberately slow demo app and optimize it.</p>
+        <p class="checklist"><strong>Self Assessment:</strong> ☐ Can list re-render triggers &nbsp;☐ Prefers composition over memo &nbsp;☐ Can explain referential equality</p>
+      </div>
+    </section>
+
+    <section class="week">
+      <h3>Week 16 — Profiling</h3>
+      <ul>
+        <li><strong>Day 76:</strong> React DevTools Profiler</li>
+        <li><strong>Day 77:</strong> Performance Profiling workflow (measure → find → fix → re-measure)</li>
+        <li><strong>Day 78:</strong> Profiling Mini Projects 2 &amp; 3 (applied practice)</li>
+        <li><strong>Day 79:</strong> Performance audit write-up practice</li>
+        <li><strong>Day 80 (Fri):</strong> Revision &amp; Practice — Weeks 15–16 topics</li>
+      </ul>
+      <div class="facts">
+        <p><strong>Weekly Goal:</strong> Measure performance instead of guessing.</p>
+        <p><strong>Learning Outcomes:</strong> Use the Profiler to find slow commits; verify fixes with data.</p>
+        <p><strong>Friday Revision Plan:</strong> Full profile-and-fix cycle on Mini Project 3, before/after screenshots.</p>
+        <p class="checklist"><strong>Self Assessment:</strong> ☐ Can read flame graphs &nbsp;☐ Can identify slow components &nbsp;☐ Verifies with measurements</p>
+      </div>
+    </section>
+
+    <h2>Phase 6 — Architecture &amp; Debugging (Weeks 17–18)</h2>
+
+    <section class="week">
+      <h3>Week 17 — Project Architecture</h3>
+      <ul>
+        <li><strong>Day 81:</strong> Feature-Based Folder Structure; Components / Hooks / Utils / Assets / Constants folders</li>
+        <li><strong>Day 82:</strong> Reusable Components, DRY Principle</li>
+        <li><strong>Day 83:</strong> Clean Code, Naming Conventions</li>
+        <li><strong>Day 84:</strong> Separation of Concerns; refactoring Mini Project 3 to feature-based structure</li>
+        <li><strong>Day 85 (Fri):</strong> Revision &amp; Practice — Week 17 topics</li>
+      </ul>
+      <div class="facts">
+        <p><strong>Weekly Goal:</strong> Structure projects like a professional team would.</p>
+        <p><strong>Learning Outcomes:</strong> Justify folder decisions; refactor a flat project into features.</p>
+        <p><strong>Friday Revision Plan:</strong> Architecture review of all 3 mini projects; refactor worst offender.</p>
+        <p class="checklist"><strong>Self Assessment:</strong> ☐ Can design feature folders &nbsp;☐ Consistent naming &nbsp;☐ No copy-pasted logic</p>
+      </div>
+    </section>
+
+    <section class="week">
+      <h3>Week 18 — Debugging</h3>
+      <ul>
+        <li><strong>Day 86:</strong> React DevTools (component inspection, props/state editing)</li>
+        <li><strong>Day 87:</strong> Chrome DevTools for React; Console Debugging</li>
+        <li><strong>Day 88:</strong> Common React Errors (keys, stale closures, infinite effects, hydration-style mistakes)</li>
+        <li><strong>Day 89:</strong> Debugging Strategies (isolate, bisect, minimal reproduction)</li>
+        <li><strong>Day 90 (Fri):</strong> Revision &amp; Practice — Week 18 topics</li>
+      </ul>
+      <div class="facts">
+        <p><strong>Weekly Goal:</strong> Debug systematically, not by trial and error.</p>
+        <p><strong>Learning Outcomes:</strong> Diagnose the classic React bug categories quickly.</p>
+        <p><strong>Friday Revision Plan:</strong> &quot;Broken app&quot; drills — fix 5 intentionally bugged components.</p>
+        <p class="checklist"><strong>Self Assessment:</strong> ☐ Fluent in React DevTools &nbsp;☐ Can fix a stale closure &nbsp;☐ Has a debugging checklist</p>
+      </div>
+    </section>
+
+    <h2>Phase 7 — Accessibility &amp; Testing (Weeks 19–20)</h2>
+
+    <section class="week">
+      <h3>Week 19 — Accessibility</h3>
+      <ul>
+        <li><strong>Day 91:</strong> Semantic HTML within JSX</li>
+        <li><strong>Day 92:</strong> Basic ARIA attributes and when they&apos;re actually needed</li>
+        <li><strong>Day 93:</strong> Keyboard navigation basics</li>
+        <li><strong>Day 94:</strong> Accessibility audit of Mini Project 3 (applied practice)</li>
+        <li><strong>Day 95 (Fri):</strong> Revision &amp; Practice — Week 19 topics</li>
+      </ul>
+      <div class="facts">
+        <p><strong>Weekly Goal:</strong> Ship UI that works for keyboard and screen-reader users.</p>
+        <p><strong>Learning Outcomes:</strong> Use semantic elements first; add ARIA only when needed; keyboard-test flows.</p>
+        <p><strong>Friday Revision Plan:</strong> Navigate Mini Project 3 with keyboard only; fix every failure.</p>
+        <p class="checklist"><strong>Self Assessment:</strong> ☐ Semantic-first habit &nbsp;☐ Knows ARIA misuse risks &nbsp;☐ Focus management in modals</p>
+      </div>
+    </section>
+
+    <section class="week">
+      <h3>Week 20 — Basic Testing</h3>
+      <ul>
+        <li><strong>Day 96:</strong> Why testing matters; intro to React Testing Library</li>
+        <li><strong>Day 97:</strong> Writing simple component tests (render, queries, assertions)</li>
+        <li><strong>Day 98:</strong> Testing user interactions (clicks, typing, forms)</li>
+        <li><strong>Day 99:</strong> Adding tests to Mini Project 3 (applied practice)</li>
+        <li><strong>Day 100 (Fri):</strong> Revision &amp; Practice — Weeks 19–20 topics</li>
+      </ul>
+      <div class="facts">
+        <p><strong>Weekly Goal:</strong> Write meaningful component tests without a full TDD course.</p>
+        <p><strong>Learning Outcomes:</strong> Test rendering and interaction from the user&apos;s perspective.</p>
+        <p><strong>Friday Revision Plan:</strong> Write 5 tests from scratch for a component you didn&apos;t build.</p>
+        <p class="checklist"><strong>Self Assessment:</strong> ☐ Can render + query + assert &nbsp;☐ Tests behavior, not implementation &nbsp;☐ Can test a form flow</p>
+      </div>
+    </section>
+
+    <h2>Phase 8 — Final Project (Weeks 21–24)</h2>
+
+    <section class="project-card">
+      <h3>🏆 Final Project — &quot;ShelfSpace&quot; Personal Library &amp; Reading Tracker</h3>
+      <p>A portfolio-quality app: browse books via a free public API (e.g., Open Library), manage a personal shelf, track reading progress, notes, and stats.</p>
+      <ul>
+        <li><strong>Objective:</strong> One large production-grade React app using only roadmap concepts (+ minimal React Router for Home / Details / My Shelf / Not Found).</li>
+        <li><strong>Features:</strong> Debounced API search, book details view, shelf CRUD with useReducer + Context, reading progress + optimistic updates (useOptimistic), notes with React 19 form Actions, stats dashboard, dark/light theme, portal modals, error boundaries, lazy-loaded routes, localStorage persistence, responsive UI, keyboard-accessible modals/forms, RTL component tests.</li>
+        <li><strong>Folder Structure:</strong> feature-based — <code>src/features/search/</code>, <code>src/features/shelf/</code>, <code>src/features/stats/</code>, plus shared <code>src/components/</code>, <code>src/hooks/</code>, <code>src/context/</code>, <code>src/utils/</code>, <code>src/constants/</code>, <code>src/__tests__/</code></li>
+        <li><strong>Skills Practiced:</strong> Everything — component architecture, all hooks, custom hooks, Context + useReducer, React 19 features, performance optimization, a11y, testing.</li>
+        <li><strong>Best Practices:</strong> Feature isolation, profiled performance, documented custom hooks, meaningful commit history.</li>
+        <li><strong>GitHub Milestone:</strong> <code>v1.0-shelfspace</code> — deployed to Vercel/Netlify, live link in README, screenshots, test badge.</li>
+      </ul>
+    </section>
+
+    <section class="week">
+      <h3>Week 21 — Foundation</h3>
+      <ul>
+        <li><strong>Day 101:</strong> Project setup, folder architecture, routing skeleton (Router basics only)</li>
+        <li><strong>Day 102:</strong> Layout, theme context, shared components</li>
+        <li><strong>Day 103:</strong> Search feature — API integration + custom hooks</li>
+        <li><strong>Day 104:</strong> Search results, loading/error/empty states</li>
+        <li><strong>Day 105 (Fri):</strong> Revision &amp; Practice — review week&apos;s code, refactor</li>
+      </ul>
+    </section>
+
+    <section class="week">
+      <h3>Week 22 — Core Features</h3>
+      <ul>
+        <li><strong>Day 106:</strong> Book details view, lazy-loaded route</li>
+        <li><strong>Day 107:</strong> Shelf state — Context + useReducer</li>
+        <li><strong>Day 108:</strong> Shelf CRUD + localStorage persistence</li>
+        <li><strong>Day 109:</strong> Reading progress + useOptimistic</li>
+        <li><strong>Day 110 (Fri):</strong> Revision &amp; Practice — code review, bug fixes</li>
+      </ul>
+    </section>
+
+    <section class="week">
+      <h3>Week 23 — Polish Features</h3>
+      <ul>
+        <li><strong>Day 111:</strong> Notes with React 19 form Actions</li>
+        <li><strong>Day 112:</strong> Stats dashboard</li>
+        <li><strong>Day 113:</strong> Portal modals, error boundaries, Not Found route</li>
+        <li><strong>Day 114:</strong> Responsive UI pass</li>
+        <li><strong>Day 115 (Fri):</strong> Revision &amp; Practice — full app walkthrough, fix list</li>
+      </ul>
+    </section>
+
+    <section class="week">
+      <h3>Week 24 — Quality &amp; Ship</h3>
+      <ul>
+        <li><strong>Day 116:</strong> Accessibility pass (keyboard, ARIA, focus management)</li>
+        <li><strong>Day 117:</strong> Performance profiling + optimization pass</li>
+        <li><strong>Day 118:</strong> Component tests with React Testing Library</li>
+        <li><strong>Day 119:</strong> README, deployment to Vercel/Netlify, live link</li>
+        <li><strong>Day 120 (Fri):</strong> Final revision — full roadmap self-assessment + portfolio review</li>
+      </ul>
+      <div class="facts">
+        <p><strong>Weekly Goals (21–24):</strong> Foundation → Core features → Polish → Quality &amp; ship.</p>
+        <p class="checklist"><strong>Final Self Assessment:</strong> ☐ Deployed live link &nbsp;☐ Tests passing &nbsp;☐ Profiled &amp; optimized &nbsp;☐ Keyboard accessible &nbsp;☐ Clean feature-based architecture &nbsp;☐ Can explain every line in an interview</p>
+      </div>
+    </section>
+
+    <h2>Resources (by major topic)</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Topic</th>
+          <th>Official Docs</th>
+          <th>Free YouTube</th>
+          <th>Practice</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Fundamentals (JSX, Components, Props)</td>
+          <td>react.dev/learn</td>
+          <td>&quot;React Full Course&quot; — freeCodeCamp</td>
+          <td>Recreate 3 static UIs</td>
+        </tr>
+        <tr>
+          <td>State &amp; Events</td>
+          <td>react.dev/learn/state-a-components-memory</td>
+          <td>Web Dev Simplified — useState</td>
+          <td>Counter/toggle/form drills</td>
+        </tr>
+        <tr>
+          <td>useEffect &amp; Data Fetching</td>
+          <td>react.dev/learn/synchronizing-with-effects</td>
+          <td>Jack Herrington — useEffect</td>
+          <td>Fetch + cleanup exercises</td>
+        </tr>
+        <tr>
+          <td>useReducer &amp; Context</td>
+          <td>react.dev/reference/react/useReducer</td>
+          <td>Codevolution — useReducer/Context series</td>
+          <td>Convert useState apps to reducers</td>
+        </tr>
+        <tr>
+          <td>Custom Hooks</td>
+          <td>react.dev/learn/reusing-logic-with-custom-hooks</td>
+          <td>Web Dev Simplified — Custom Hooks</td>
+          <td>Build useFetch, useLocalStorage, useDebounce</td>
+        </tr>
+        <tr>
+          <td>React 19 Features</td>
+          <td>react.dev/blog (React 19 release notes)</td>
+          <td>Theo / Jack Herrington — React 19 breakdowns</td>
+          <td>Legacy → Actions refactor</td>
+        </tr>
+        <tr>
+          <td>Performance</td>
+          <td>react.dev/reference/react/memo</td>
+          <td>Jack Herrington — React render performance</td>
+          <td>Optimize a slow demo app</td>
+        </tr>
+        <tr>
+          <td>Accessibility</td>
+          <td>react.dev + MDN ARIA docs</td>
+          <td>Web Dev Simplified — Web Accessibility</td>
+          <td>Keyboard-only audits</td>
+        </tr>
+        <tr>
+          <td>Testing</td>
+          <td>testing-library.com/docs/react-testing-library/intro</td>
+          <td>Codevolution — RTL series</td>
+          <td>Test your mini projects</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <footer>
+      <p>React Mastery Roadmap &middot; 24 weeks &middot; 120 days &middot; 3 mini projects + 1 final project</p>
+    </footer>
+  </main>
+</body>
+</html>
