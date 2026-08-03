@@ -1,16 +1,28 @@
-
+import {useState} from 'react'
 function App() {
+        let [counter , setcounter] = useState(0)  
     return (
-        <div>
-            <h1>setup-of-react</h1>
-        </div>
+        <>
+            <h1>counter = {counter} </h1>
+            <button 
+            onClick ={()=>{ 
+                if(counter < 20){
+                    setcounter(++counter)
+                }
+                }
+        }
+            >+</button>
+            <button 
+            onClick ={()=> {
+                if(counter > 0){
+                    setcounter(--counter)
+                }
+            }
+        }
+            >-</button>
+        </>
     )
 }
 
-// function Hello(){
-//     return <h1>hello</h1>
-// }
-
 
 export default App
-// export {Hello}
