@@ -15,6 +15,13 @@ function List ({name , age}){
                 <li>age = {age}</li>
             </ol>
         </User>
+                <User userName = {name}  userAge = {age}>
+            <ol>
+                <li> minu = {name}</li>
+                <li>age = {age}</li>
+            </ol>
+        </User>
+        
         </>
     )
 }
