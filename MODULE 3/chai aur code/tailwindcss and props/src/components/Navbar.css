@@ -1,0 +1,5 @@
+@reference "../App.css";
+
+.btn{
+    @apply bg-red-400 rounded-xl border-none p-4 m-1;
+}
