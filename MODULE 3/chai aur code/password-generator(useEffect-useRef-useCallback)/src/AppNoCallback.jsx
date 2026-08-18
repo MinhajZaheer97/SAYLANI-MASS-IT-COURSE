@@ -1,30 +1,48 @@
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 
 function App() {
-    const [count, setCount] = useState(0)
-    const [other, setOther] = useState(0)
 
-    // Without useCallback, a NEW function instance is created on every render.
-    const incrementCount = () => {
-        setCount(c => c + 1)
-    }
+    const [length, setLength] = useState(8)
+    const [numbers, setNumbers] = useState(false)
+    const [characters, setCharacters] = useState(false)
+    const [passGen, setPassGen] = useState("")
 
+    const randomPass = useCallback(() => {
+
+        let pass;
+        let char = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+        let password = "";
+
+        if (numbers) {
+            char += "0123456789"
+        }
+
+        if (characters) {
+            char += "!@#$%^&*()_+"
+        }
+
+        for (let i = 1; i <= length; i++) {
+            pass = Math.floor(Math.random() * char.length)
+            password += char.charAt(pass)
+        }
+        // console.log(password);
+        setPassGen(password)
+    }, [length, numbers, characters ])
     return (
         <div>
-            <h1>Count: {count}</h1>
-            <h2>Other: {other}</h2>
-
-            <button onClick={() => setOther(other + 1)}>Change Other</button>
-
-            {/* CounterButton re-renders every time App renders */}
-            <CounterButton onClick={incrementCount} />
+            <h1>
+                password generator !
+            </h1>
+            <input type="text" value={passGen} readOnly />
+            <button onClick={()=>{
+                setNumbers((prev) => !prev)
+                randomPass()
+                console.log(numbers);
+                
+                }}>include num</button>
+            <button onClick={randomPass}>click</button>
         </div>
     )
-}
-
-const CounterButton = ({ onClick }) => {
-    console.log('CounterButton re-rendered')
-    return <button onClick={onClick}>Increment Count</button>
 }
 
 export default App

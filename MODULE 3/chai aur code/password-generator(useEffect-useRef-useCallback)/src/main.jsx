@@ -8,6 +8,6 @@ import Callbackhook from './Callbackhook.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />,
-    <Callbackhook />
+    {/* <Callbackhook /> */}
   </StrictMode>
 )
