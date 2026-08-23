@@ -13,10 +13,10 @@ function App() {
    <div>
      {products.map(product => (
        <div key={product.id} className="product">
-         <h2>{product.title}</h2>
-         <p>{product.description}</p>
-         <p>Price: ${product.price}</p>
-         <img src={product.image} alt={product.title} />
+         <h2 className='heading'>{product.title}</h2>
+         <p className='description'>{product.description}</p>
+         <p className='price'>Price: ${product.price}</p>
+         <img src={product.image} alt={product.title} className='product-image' />
        </div>
      ))}
    </div>
