@@ -2,9 +2,9 @@ import { useState, useCallback } from 'react'
 
 function App() {
 
-    const [length, setLength] = useState(8)
-    const [numbers, setNumbers] = useState(false)
-    const [characters, setCharacters] = useState(false)
+    const [length, setLength] = useState(16)
+    const [numbers, setNumbers] = useState(true)
+    const [characters, setCharacters] = useState(true)
     const [passGen, setPassGen] = useState("")
 
     const randomPass = useCallback(() => {
@@ -25,22 +25,32 @@ function App() {
             pass = Math.floor(Math.random() * char.length)
             password += char.charAt(pass)
         }
-        // console.log(password);
+
+        
         setPassGen(password)
-    }, [length, numbers, characters ])
+    }, [length, numbers, characters])
+    
     return (
         <div>
             <h1>
                 password generator !
             </h1>
             <input type="text" value={passGen} readOnly />
-            <button onClick={()=>{
+            <input type="range" value={length} min={0} max={74} onChange={
+                randomPass
+            }/>
+            <input type="checkbox" onClick={() => {
                 setNumbers((prev) => !prev)
-                randomPass()
-                console.log(numbers);
-                
-                }}>include num</button>
-            <button onClick={randomPass}>click</button>
+                // randomPass()
+            }}></input>include num
+
+            <input type='checkbox' onClick={() => {
+                setCharacters((prev) => !prev)
+                // randomPass()
+            }}>
+            </input>include char
+
+
         </div>
     )
 }
