@@ -25,32 +25,31 @@ function App() {
             pass = Math.floor(Math.random() * char.length)
             password += char.charAt(pass)
         }
-
-        
         setPassGen(password)
     }, [length, numbers, characters])
-    
+
     return (
         <div>
             <h1>
                 password generator !
             </h1>
             <input type="text" value={passGen} readOnly />
-            <input type="range" value={length} min={0} max={74} onChange={
-                randomPass
+            <input type="range" value={length} min={6} max={74} onChange={(e)=>{
+                setLength(e.target.value)
+                randomPass()
+            }
             }/>
-            <input type="checkbox" onClick={() => {
+            <label>length = {length}</label>
+            <input type="checkbox" defaultChecked ={numbers} onChange={() => {
                 setNumbers((prev) => !prev)
-                // randomPass()
+                randomPass()
             }}></input>include num
 
-            <input type='checkbox' onClick={() => {
-                setCharacters((prev) => !prev)
-                // randomPass()
+            <input type='checkbox' checked ={characters} onChange={() => {
+                setCharacters((prevs) => !prevs)
+                randomPass()
             }}>
             </input>include char
-
-
         </div>
     )
 }
