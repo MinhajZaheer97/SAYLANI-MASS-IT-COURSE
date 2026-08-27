@@ -1,6 +1,6 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback , useEffect} from 'react'
 
-function App() {
+function Passgen() {
 
     const [length, setLength] = useState(16)
     const [numbers, setNumbers] = useState(true)
@@ -28,6 +28,9 @@ function App() {
         setPassGen(password)
     }, [length, numbers, characters])
 
+    useEffect(()=>{
+        randomPass()
+    }, [length , numbers , characters])
     return (
         <div>
             <h1>
@@ -36,22 +39,19 @@ function App() {
             <input type="text" value={passGen} readOnly />
             <input type="range" value={length} min={6} max={74} onChange={(e)=>{
                 setLength(e.target.value)
-                randomPass()
             }
             }/>
             <label>length = {length}</label>
             <input type="checkbox" defaultChecked ={numbers} onChange={() => {
                 setNumbers((prev) => !prev)
-                randomPass()
             }}></input>include num
 
             <input type='checkbox' checked ={characters} onChange={() => {
                 setCharacters((prevs) => !prevs)
-                randomPass()
             }}>
             </input>include char
         </div>
     )
 }
 
-export default App
+export default Passgen
