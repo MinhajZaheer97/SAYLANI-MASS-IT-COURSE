@@ -27,18 +27,23 @@ function Passgen() {
             password += char.charAt(pass)
         }
         setPassGen(password)
-    }, [length, numbers, characters])
+    }, [length, numbers, characters ,setPassGen])
 
     useEffect(()=>{
         randomPass()
     }, [length , numbers , characters])
+
+    let copy = useCallback(()=>{
+        window.navigator.clipboard.writeText(passGen)
+    }, [passGen])
     return (
         <div className="passgen">
             <div className="passgen-card">
                 <h1 className="passgen-title">
                     password generator !
                 </h1>
-                <input className="passgen-field" type="text" value={passGen} readOnly />
+                <input className="passgen-field" type="text" value={passGen} readOnly /><button 
+                onClick={copy} className="passgen-copy">copy</button>
                 <input className="passgen-slider" type="range" value={length} min={6} max={74} onChange={(e)=>{
                     setLength(e.target.value)
                 }
