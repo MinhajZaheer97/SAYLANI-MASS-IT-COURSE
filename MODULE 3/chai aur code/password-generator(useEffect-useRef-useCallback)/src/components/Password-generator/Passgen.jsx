@@ -1,4 +1,5 @@
 import { useState, useCallback , useEffect} from 'react'
+import './passgen.css'
 
 function Passgen() {
 
@@ -32,24 +33,33 @@ function Passgen() {
         randomPass()
     }, [length , numbers , characters])
     return (
-        <div>
-            <h1>
-                password generator !
-            </h1>
-            <input type="text" value={passGen} readOnly />
-            <input type="range" value={length} min={6} max={74} onChange={(e)=>{
-                setLength(e.target.value)
-            }
-            }/>
-            <label>length = {length}</label>
-            <input type="checkbox" defaultChecked ={numbers} onChange={() => {
-                setNumbers((prev) => !prev)
-            }}></input>include num
-
-            <input type='checkbox' checked ={characters} onChange={() => {
-                setCharacters((prevs) => !prevs)
-            }}>
-            </input>include char
+        <div className="passgen">
+            <div className="passgen-card">
+                <h1 className="passgen-title">
+                    password generator !
+                </h1>
+                <input className="passgen-field" type="text" value={passGen} readOnly />
+                <input className="passgen-slider" type="range" value={length} min={6} max={74} onChange={(e)=>{
+                    setLength(e.target.value)
+                }
+                }/>
+                <label className="passgen-length-label">length = {length}</label>
+                <div className="passgen-options">
+                    <label className="passgen-option">
+                        <input className="passgen-checkbox" type="checkbox" defaultChecked ={numbers} onChange={() => {
+                            setNumbers((prev) => !prev)
+                        }}></input>
+                        <span className="passgen-option-text">include numbers</span>
+                    </label>
+                    <label className="passgen-option">
+                        <input className="passgen-checkbox" type='checkbox' checked ={characters} onChange={() => {
+                            setCharacters((prevs) => !prevs)
+                        }}>
+                        </input>
+                        <span className="passgen-option-text">include symbols</span>
+                    </label>
+                </div>
+            </div>
         </div>
     )
 }
