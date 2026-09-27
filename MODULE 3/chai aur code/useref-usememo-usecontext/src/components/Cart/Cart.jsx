@@ -1,8 +1,12 @@
 import React from 'react'
+import {addedProducts} from '../Products/Products'
 
 const Cart = () => {
   return (
-    <div>Cart</div>
+    <>
+      {console.log(addedProducts)}
+      <p>hello</p>
+    </>
   )
 }
 
